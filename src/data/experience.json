@@ -1,0 +1,27 @@
+[
+  {
+    "date": "Febrero 2023 – Actualidad",
+    "title": "Desarrollador Frontend",
+    "company": "Municipalidad de Catamarca Capital",
+    "description": "Diseño y desarrollo de plataformas administrativas y de acceso público, reduciendo los tiempos de entrega en un 50%. Implementé pipelines de CI/CD, disminuyendo errores en producción en más de un 80%. Automaticé procesos repetitivos con UiPath y añadí testing automatizado con Jest.",
+    "current": true
+  },
+  {
+    "date": "Junio 2025 – Julio 2025",
+    "title": "Desarrollador FullStack (Freelance)",
+    "company": "SUTEPA",
+    "description": "Desarrollé un sistema de votación en tiempo real con React, Laravel y WebSockets garantizando alta disponibilidad y resultados instantáneos. Diseñé dashboards de participación con segmentación geográfica. Optimicé arquitectura y flujos de datos mejorando la eficiencia operativa en un 60%."
+  },
+  {
+    "date": "Septiembre 2024 – Octubre 2024",
+    "title": "Desarrollador FullStack (Freelance)",
+    "company": "Escuela EDJA N°4",
+    "description": "Modernización del sistema de gestión de docentes y estudiantes con Laravel y React, reemplazando procesos ineficientes basados en Excel. Implementé CI/CD con GitHub Actions y optimicé componentes y consultas, reduciendo los tiempos de entrega en un 40%."
+  },
+  {
+    "date": "Febrero 2024 – Julio 2024",
+    "title": "Desarrollador FullStack (Freelance)",
+    "company": "SUTEPA",
+    "description": "Modernización del sistema de gestión académica reemplazando procesos en Excel por una plataforma con Laravel y React. Implementé CI/CD con GitHub Actions y optimicé consultas y componentes reduciendo tiempos de entrega en un 40%."
+  }
+]

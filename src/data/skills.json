@@ -1,0 +1,14 @@
+[
+  {
+    "category": "Frontend",
+    "items": ["React", "TypeScript", "Next.js", "Astro", "Tailwind CSS", "JavaScript"]
+  },
+  {
+    "category": "Backend",
+    "items": ["Laravel", "Node.js", "Express", "REST APIs", "WebSockets"]
+  },
+  {
+    "category": "DevOps & Herramientas",
+    "items": ["Git", "GitHub Actions", "CI/CD", "Jest", "Docker", "Supabase"]
+  }
+]

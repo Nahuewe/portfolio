@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Dashboard Municipal (proyects-dashboard)",
+    "description": "Herramienta interna en Next.js 15 que centraliza 18 módulos de gestión para la Municipalidad de Catamarca Capital. Incluye SSO con Keycloak, dark mode persistente, manejo de estado con TanStack Query y despliegue con Docker.",
+    "tags": ["Next.js 15", "TypeScript", "shadcn/ui", "Keycloak", "TanStack Query", "Tailwind CSS 4", "Docker"]
+  },
+  {
+    "title": "Sistema de Descargos - Juzgado de Faltas",
+    "description": "Aplicación ciudadana para la presentación y consulta de descargos (objeciones formales) ante infracciones de tránsito. Incluye búsqueda por expediente, estados con badges visuales y un timeline de historial de cada trámite.",
+    "tags": ["React", "TypeScript", "Axios", "UI/UX"]
+  },
+  {
+    "title": "Sistema de Votación en Tiempo Real",
+    "description": "Plataforma de votación en tiempo real para SUTEPA con alta disponibilidad y resultados instantáneos. Incluye dashboards de participación con segmentación geográfica, optimizando la eficiencia operativa en un 60%.",
+    "tags": ["React", "Laravel", "WebSockets", "Dashboards"]
+  },
+  {
+    "title": "Manga Collection Manager",
+    "description": "Aplicación personal para gestionar una colección de manga, con carga de catálogos desde Excel, diffing automático de cambios entre subidas y un registro de historial de versiones.",
+    "tags": ["React", "TypeScript", "Vite", "Supabase"]
+  }
+]
