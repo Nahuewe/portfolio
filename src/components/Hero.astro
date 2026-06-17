@@ -1,47 +1,182 @@
 ---
-import Badge from "@/components/Badge.astro"
-import GitHubIcon from "@/components/icons/GitHub.astro"
-import LinkedInIcon from "@/components/icons/LinkedIn.astro"
-import MailIcon from "@/components/icons/Mail.astro"
-import SocialPill from "@/components/SocialPill.astro"
+import Badge from "@/components/Badge.astro";
+import GitHubIcon from "@/components/icons/GitHub.astro";
+import LinkedInIcon from "@/components/icons/LinkedIn.astro";
+import MailIcon from "@/components/icons/Mail.astro";
+import SocialPill from "@/components/SocialPill.astro";
 ---
 
-<div class="max-w-xl">
+<div class="max-w-4xl">
   <div class="anim-fade-in flex gap-4 mb-6 items-center">
     <a
       href="https://linkedin.com/in/nahuelsoriaparodi"
       target="_blank"
       rel="noopener noreferrer"
-      class="flex items-center transition md:justify-center md:hover:scale-105"
+      class="flex items-center transition md:hover:scale-105 mt-4"
     >
       <Badge>Disponible para trabajar</Badge>
     </a>
   </div>
 
-  <h1
-    class="anim-fade-in anim-delay-1 text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+  <p
+    class="anim-fade-in
+      anim-delay-1
+      text-sm
+      uppercase
+      tracking-[0.25em]
+      text-violet-400
+      font-medium"
   >
-    Hola, soy <span class="gradient-name">Nahuel Soria Parodi</span>
+    Desarrollador FullStack
+  </p>
+
+  <h1
+    class="anim-fade-in
+      anim-delay-1
+      mt-3
+      text-4xl
+      sm:text-6xl
+      font-extrabold
+      tracking-tight"
+  >
+    Desarrollo plataformas administrativas, dashboards y sistemas de gestión
+    modernos.
   </h1>
 
   <p
-    class="anim-fade-in anim-delay-2 mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+    class="anim-fade-in
+      anim-delay-2
+      mt-6
+      max-w-3xl
+      text-lg
+      leading-relaxed
+      text-neutral-600
+      dark:text-neutral-400"
   >
-    +4 años de experiencia. <strong>Desarrollador FullStack</strong> de Catamarca, Argentina 🇦🇷. Especializado en aplicaciones web escalables, plataformas administrativas y sistemas en tiempo real.
+    Soy <span class="font-semibold text-violet-500">Nahuel Soria Parodi</span>, desarrollador
+    FullStack especializado en React, Astro, Next.js y Laravel. Me enfoco en
+    transformar procesos manuales en aplicaciones web rápidas, mantenibles y
+    escalables, creando plataformas de gestión, dashboards administrativos e
+    integraciones para organismos y equipos de trabajo.
   </p>
 
+  <!-- MÉTRICAS -->
+  <div
+    class="anim-fade-in
+      anim-delay-2
+      mt-10
+      grid
+      gap-4
+      sm:grid-cols-3"
+  >
+    <div
+      class="rounded-2xl
+        border
+        border-violet-500/15
+        bg-violet-500/5
+        p-5"
+    >
+      <div class="text-3xl font-bold text-violet-400">5+</div>
+
+      <p class="mt-1 text-sm text-neutral-500">Años de experiencia</p>
+    </div>
+
+    <div
+      class="rounded-2xl
+        border
+        border-violet-500/15
+        bg-violet-500/5
+        p-5"
+    >
+      <div class="text-3xl font-bold text-violet-400">30+</div>
+
+      <p class="mt-1 text-sm text-neutral-500">Proyectos entregados</p>
+    </div>
+
+    <div
+      class="rounded-2xl
+        border
+        border-violet-500/15
+        bg-violet-500/5
+        p-5"
+    >
+      <div class="text-3xl font-bold text-violet-400">18</div>
+
+      <p class="mt-1 text-sm text-neutral-500">Módulos integrados</p>
+    </div>
+  </div>
+
+  <!-- STACK -->
+  <div class="anim-fade-in
+      anim-delay-3
+      mt-10">
+    <p
+      class="mb-4
+        text-xs
+        uppercase
+        tracking-[0.25em]
+        text-neutral-500"
+    >
+      Stack principal
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      {
+        [
+          "React",
+          "Next.js",
+          "Astro",
+          "TypeScript",
+          "Laravel",
+          "Docker",
+          "PostgreSQL",
+          "Supabase",
+        ].map((tech) => (
+          <span
+            class="
+              rounded-full
+              border
+              border-violet-500/20
+              bg-violet-500/5
+              px-4
+              py-2
+              text-sm
+              font-medium
+              text-violet-300
+              transition-all
+              duration-200
+              hover:-translate-y-0.5
+              hover:border-violet-400/40
+              hover:bg-violet-500/10
+            "
+          >
+            {tech}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- BOTONES -->
   <nav
-    class="anim-fade-in anim-delay-3 flex flex-wrap gap-4 mt-8"
+    class="anim-fade-in
+      anim-delay-3
+      flex
+      flex-wrap
+      gap-4
+      mt-10"
     aria-label="Redes sociales y contacto"
   >
     <SocialPill href="mailto:nahuelsoriap@gmail.com">
       <MailIcon class="size-4" />
       Contáctame
     </SocialPill>
+
     <SocialPill href="https://linkedin.com/in/nahuelsoriaparodi">
       <LinkedInIcon class="size-4" />
       LinkedIn
     </SocialPill>
+
     <SocialPill href="https://github.com/nahuelsoriaparodi">
       <GitHubIcon class="size-4" />
       GitHub

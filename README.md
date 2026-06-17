@@ -1,7 +1,7 @@
 # 👨🏻‍💻 Portfolio de Nahuel Soria Parodi
 
 <div align="center">
-<a href="https://nahuelsoriaparodi.dev/"></a>
+<a href="https://portfolionahuelsoriaparodi.netlify.app/"></a>
 </div>
 
 <div align="center">
