@@ -1,7 +1,7 @@
 [
   {
     "title": "Dashboard Municipal",
-    "description": "Plataforma administrativa que centraliza 18 módulos de gestión municipal con autenticación SSO mediante Keycloak, TanStack Query, Docker y arquitectura escalable.",
+    "description": "Plataforma administrativa que centraliza 24 módulos de gestión municipal con autenticación SSO mediante Keycloak, TanStack Query, Docker y arquitectura escalable.",
     "tags": [
       "Next.js 15",
       "TypeScript",
@@ -30,21 +30,12 @@
     ]
   },
   {
-    "title": "Manga Collection Manager",
+    "title": "Gestor de Mangas",
     "description": "Sistema de gestión de colecciones con importación desde Excel, historial de cambios, changelog automático, estadísticas y Supabase.",
     "tags": [
       "React",
       "TypeScript",
       "Supabase"
-    ]
-  },
-  {
-    "title": "Feed Social Catamarca Capital",
-    "description": "Integración centralizada de contenido proveniente de Facebook, Instagram y TikTok para organismos públicos.",
-    "tags": [
-      "Astro",
-      "React",
-      "APIs"
     ]
   }
 ]

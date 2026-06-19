@@ -3,12 +3,50 @@ import ExperienceItem from "./ExperienceItem.astro"
 import experience from "@/data/experience.json"
 ---
 
-<ol class="relative mt-16" aria-label="Experiencia laboral">
-  {
-    experience.map((exp, i) => (
-      <li class="anim-fade-in" style={`animation-delay: ${i * 150}ms`}>
-        <ExperienceItem {...exp} />
-      </li>
-    ))
-  }
-</ol>
+<div class="space-y-20">
+
+  <div>
+    <div class="mb-8">
+      <h3 class="text-2xl font-bold text-white">
+        Experiencia Profesional
+      </h3>
+
+      <p class="mt-2 text-neutral-400">
+        Experiencia en organismos públicos y desarrollo de plataformas de alto impacto.
+      </p>
+    </div>
+
+    <ol class="relative">
+      {
+        experience.professional.map((exp, i) => (
+          <li class="anim-fade-in" style={`animation-delay: ${i * 150}ms`}>
+            <ExperienceItem {...exp} />
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  <div>
+    <div class="mb-8">
+      <h3 class="text-2xl font-bold text-violet-400">
+        Proyectos Freelance
+      </h3>
+
+      <p class="mt-2 text-neutral-400">
+        Soluciones desarrolladas para organizaciones educativas y sindicales.
+      </p>
+    </div>
+
+    <ol class="relative">
+      {
+        experience.freelance.map((exp, i) => (
+          <li class="anim-fade-in" style={`animation-delay: ${i * 150}ms`}>
+            <ExperienceItem {...exp} />
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+</div>
