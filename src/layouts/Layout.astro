@@ -2,10 +2,12 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
+import { useTranslations, type Lang } from "@/i18n/utils";
 
 interface Props {
   title: string;
   description: string;
+  lang: Lang;
   image?: string;
   canonical?: string;
 }
@@ -13,12 +15,16 @@ interface Props {
 const {
   description,
   title,
+  lang,
   image = "/porfolio.webp",
   canonical = Astro.url.href,
 } = Astro.props;
 
+const t = useTranslations(lang);
+
 const siteUrl = "https://portfolionahuelsoriaparodi.netlify.app/";
 const ogImage = new URL(image, siteUrl).toString();
+const ogLocale = lang === "en" ? "en_US" : "es_ES";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -29,7 +35,7 @@ const jsonLd = {
     "https://linkedin.com/in/nahuelsoriaparodi",
     "https://github.com/nahuelsoriaparodi",
   ],
-  jobTitle: "Desarrollador FullStack",
+  jobTitle: t("person.jobTitle"),
   worksFor: {
     "@type": "Organization",
     name: "Municipalidad de Catamarca Capital",
@@ -38,7 +44,7 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,7 +63,7 @@ const jsonLd = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:site_name" content="Nahuel Soria Parodi · Portfolio" />
 
     <!-- JSON-LD structured data -->
@@ -89,9 +95,9 @@ const jsonLd = {
       aria-hidden="true"
     >
     </div>
-    <Header />
+    <Header lang={lang} />
     <slot />
-    <Footer />
+    <Footer lang={lang} />
     <style is:global>
       :root {
         color-scheme: light dark;
@@ -162,7 +168,6 @@ const jsonLd = {
         }
       }
 
-      /* ── Design system: staggered entrance animations ─────────────── */
       @keyframes fade-in-up {
         from {
           opacity: 0;
@@ -190,7 +195,6 @@ const jsonLd = {
         animation-delay: 540ms;
       }
 
-      /* Gradient text utility for the hero name */
       .gradient-name {
         background: linear-gradient(135deg, #f59e0b 10%, #f97316 90%);
         -webkit-background-clip: text;
@@ -199,7 +203,6 @@ const jsonLd = {
         color: transparent;
       }
 
-      /* Scroll-triggered reveal for named sections (below the fold) */
       @supports (animation-timeline: view()) {
         [data-section] {
           animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;

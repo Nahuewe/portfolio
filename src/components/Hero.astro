@@ -4,6 +4,14 @@ import GitHubIcon from "@/components/icons/GitHub.astro";
 import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
 import SocialPill from "@/components/SocialPill.astro";
+import { useTranslations, type Lang } from "@/i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class="max-w-4xl">
@@ -14,7 +22,7 @@ import SocialPill from "@/components/SocialPill.astro";
       rel="noopener noreferrer"
       class="flex items-center transition md:hover:scale-105 mt-4"
     >
-      <Badge>Disponible para trabajar</Badge>
+      <Badge>{t("hero.available")}</Badge>
     </a>
   </div>
 
@@ -27,7 +35,7 @@ import SocialPill from "@/components/SocialPill.astro";
       text-violet-400
       font-medium"
   >
-    Desarrollador FullStack
+    {t("hero.role")}
   </p>
 
   <h1
@@ -39,8 +47,7 @@ import SocialPill from "@/components/SocialPill.astro";
       font-extrabold
       tracking-tight"
   >
-    Desarrollo plataformas administrativas, dashboards y sistemas de gestión
-    modernos.
+    {t("hero.headline")}
   </h1>
 
   <p
@@ -53,11 +60,7 @@ import SocialPill from "@/components/SocialPill.astro";
       text-neutral-600
       dark:text-neutral-400"
   >
-    Soy <span class="font-semibold text-violet-500">Nahuel Soria Parodi</span>, desarrollador
-    FullStack especializado en React, Astro, Next.js y Laravel. Me enfoco en
-    transformar procesos manuales en aplicaciones web rápidas, mantenibles y
-    escalables, creando plataformas de gestión, dashboards administrativos e
-    integraciones para organismos y equipos de trabajo.
+    {t("hero.intro.before")} <span class="font-semibold text-violet-500">{t("hero.intro.name")}</span>{t("hero.intro.after")}
   </p>
 
   <!-- MÉTRICAS -->
@@ -78,7 +81,7 @@ import SocialPill from "@/components/SocialPill.astro";
     >
       <div class="text-3xl font-bold text-violet-400">5+</div>
 
-      <p class="mt-1 text-sm text-neutral-500">Años de experiencia</p>
+      <p class="mt-1 text-sm text-neutral-500">{t("hero.metric.years")}</p>
     </div>
 
     <div
@@ -90,7 +93,7 @@ import SocialPill from "@/components/SocialPill.astro";
     >
       <div class="text-3xl font-bold text-violet-400">30+</div>
 
-      <p class="mt-1 text-sm text-neutral-500">Proyectos entregados</p>
+      <p class="mt-1 text-sm text-neutral-500">{t("hero.metric.projects")}</p>
     </div>
 
     <div
@@ -102,7 +105,7 @@ import SocialPill from "@/components/SocialPill.astro";
     >
       <div class="text-3xl font-bold text-violet-400">18</div>
 
-      <p class="mt-1 text-sm text-neutral-500">Módulos integrados</p>
+      <p class="mt-1 text-sm text-neutral-500">{t("hero.metric.modules")}</p>
     </div>
   </div>
 
@@ -117,7 +120,7 @@ import SocialPill from "@/components/SocialPill.astro";
         tracking-[0.25em]
         text-neutral-500"
     >
-      Stack principal
+      {t("hero.stack.label")}
     </p>
 
     <div class="flex flex-wrap gap-2">
@@ -165,11 +168,11 @@ import SocialPill from "@/components/SocialPill.astro";
       flex-wrap
       gap-4
       mt-10"
-    aria-label="Redes sociales y contacto"
+    aria-label={t("nav.aria")}
   >
     <SocialPill href="mailto:nahuelsoriap@gmail.com">
       <MailIcon class="size-4" />
-      Contáctame
+      {t("hero.contact")}
     </SocialPill>
 
     <SocialPill href="https://linkedin.com/in/nahuelsoriaparodi">

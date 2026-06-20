@@ -6,5 +6,12 @@ import robotsTxt from "astro-robots-txt"
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt()],
-  site: 'https://portfolionahuelsoriaparodi.netlify.app/'
+  site: 'https://portfolionahuelsoriaparodi.netlify.app/',
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 })

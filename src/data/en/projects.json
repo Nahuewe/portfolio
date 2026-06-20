@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Municipal Dashboard",
+    "description": "Administrative platform centralizing 24 municipal management modules with SSO authentication via Keycloak, TanStack Query, Docker and scalable architecture.",
+    "tags": [
+      "Next.js 15",
+      "TypeScript",
+      "TanStack Query",
+      "Keycloak",
+      "Docker"
+    ]
+  },
+  {
+    "title": "Revenue Collection System",
+    "description": "Financial dashboard with advanced filters, date-based reports, collection indicators and operational performance analysis.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Laravel",
+      "Charts"
+    ]
+  },
+  {
+    "title": "Real-Time Voting System",
+    "description": "Voting platform for SUTEPA with instant results, geographic segmentation and participation dashboards.",
+    "tags": [
+      "React",
+      "Laravel",
+      "WebSockets"
+    ]
+  },
+  {
+    "title": "Manga Collection Manager",
+    "description": "Collection management system with Excel import, change history, automatic changelog, statistics and Supabase.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Supabase"
+    ]
+  }
+]

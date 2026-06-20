@@ -1,6 +1,7 @@
 ---
 import LinkInline from "./LinkInline.astro";
 import ArrowRight from "./icons/ArrowRight.astro";
+import { useTranslations, type Lang } from "@/i18n/utils";
 
 interface Props {
   title: string;
@@ -10,6 +11,7 @@ interface Props {
   date: string;
   current?: boolean;
   freelance?: boolean;
+  lang: Lang;
 }
 
 const {
@@ -20,7 +22,10 @@ const {
   link,
   date,
   current = false,
+  lang,
 } = Astro.props;
+
+const t = useTranslations(lang);
 ---
 
 <div
@@ -28,7 +33,6 @@ const {
 >
   <div class="relative pb-12 md:col-span-2">
     <div class="sticky top-0">
-      <!-- Title row with dot: flex ensures perfect vertical centering -->
       <div class="flex items-center">
         <span
           class="absolute -left-[42px] flex size-[14px] items-center justify-center"
@@ -48,7 +52,7 @@ const {
       <h4 class="font-semibold text-xl text-gray-600 dark:text-white">
         {company}
 
-        {freelance && <span class="ml-2 text-sm text-violet-400">Cliente</span>}
+        {freelance && <span class="ml-2 text-sm text-violet-400">{t("experience.client")}</span>}
       </h4>
       <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80"
         >{date}</time
@@ -62,7 +66,7 @@ const {
     {
       link && (
         <LinkInline href={link}>
-          Saber más sobre {company}{" "}
+          {t("experience.learnMore")} {company}{" "}
           <ArrowRight class="size-5" aria-hidden="true" />
         </LinkInline>
       )

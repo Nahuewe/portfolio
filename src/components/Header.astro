@@ -1,31 +1,41 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import LanguageToggle from "./LanguageToggle.astro";
+import { useTranslations, type Lang } from "@/i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const base = lang === "es" ? "" : "/en";
 
 const navItems = [
   {
-    title: "Servicios",
+    title: t("nav.services"),
     label: "servicios",
-    url: "/#servicios",
+    url: `${base}/#servicios`,
   },
   {
-    title: "Experiencia",
+    title: t("nav.experience"),
     label: "experiencia",
-    url: "/#experiencia",
+    url: `${base}/#experiencia`,
   },
   {
-    title: "Stack",
+    title: t("nav.stack"),
     label: "stack",
-    url: "/#stack",
+    url: `${base}/#stack`,
   },
   {
-    title: "Proyectos",
+    title: t("nav.projects"),
     label: "proyectos",
-    url: "/#proyectos",
+    url: `${base}/#proyectos`,
   },
   {
-    title: "Sobre mí",
+    title: t("nav.about"),
     label: "sobre-mi",
-    url: "/#sobre-mi",
+    url: `${base}/#sobre-mi`,
   },
 ];
 ---
@@ -61,10 +71,13 @@ const navItems = [
           cursor-pointer
         "
       >
-        ☰ Menú
+        ☰ {t("nav.menu")}
       </button>
 
-      <ThemeToggle />
+      <div class="flex items-center gap-2">
+        <LanguageToggle lang={lang} />
+        <ThemeToggle />
+      </div>
     </div>
 
     <!-- MOBILE MENU -->
@@ -104,7 +117,7 @@ const navItems = [
         }
 
         <a
-          href="/#contacto"
+          href={`${base}/#contacto`}
           class="
             mt-2
             rounded-xl
@@ -119,7 +132,7 @@ const navItems = [
             cursor-pointer
           "
         >
-          Contactar
+          {t("nav.contact")}
         </a>
       </div>
     </div>
@@ -164,7 +177,7 @@ const navItems = [
       }
 
       <a
-        href="/#contacto"
+        href={`${base}/#contacto`}
         class="
           ml-2
           rounded-full
@@ -180,10 +193,11 @@ const navItems = [
           cursor-pointer
         "
       >
-        Contactar
+        {t("nav.contact")}
       </a>
 
-      <div class="ml-2 pl-2 border-l border-gray-300/30 dark:border-white/10">
+      <div class="ml-2 pl-2 flex items-center gap-2 border-l border-gray-300/30 dark:border-white/10">
+        <LanguageToggle lang={lang} />
         <ThemeToggle />
       </div>
     </nav>

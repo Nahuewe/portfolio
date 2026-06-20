@@ -1,14 +1,13 @@
 ---
-const services = [
-  "Dashboards administrativos",
-  "Sistemas de gestión",
-  "Aplicaciones en tiempo real",
-  "Integraciones con APIs",
-  "Automatización de procesos",
-  "Modernización de sistemas basados en Excel",
-  "Portales institucionales",
-  "Arquitectura Frontend escalable"
-]
+import { useTranslations, type Lang } from "@/i18n/utils"
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const services = t("services.list")
 ---
 
 <div class="grid gap-4 md:grid-cols-2">

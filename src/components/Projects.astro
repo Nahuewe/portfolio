@@ -2,9 +2,18 @@
 import GitHub from "./icons/GitHub.astro"
 import ExternalLink from "./icons/ExternalLink.astro"
 import LinkButton from "./LinkButton.astro"
-import projectsData from "@/data/projects.json"
+import projectsEs from "@/data/es/projects.json"
+import projectsEn from "@/data/en/projects.json"
+import { useTranslations, type Lang } from "@/i18n/utils"
 
-const PROJECTS = projectsData as Array<{
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+const PROJECTS = (lang === "en" ? projectsEn : projectsEs) as Array<{
   title: string
   description: string
   tags: string[]
@@ -14,7 +23,7 @@ const PROJECTS = projectsData as Array<{
 ---
 
 {PROJECTS.length === 0 ? (
-  <p class="mt-8 text-gray-500 dark:text-gray-400 italic">Próximamente...</p>
+  <p class="mt-8 text-gray-500 dark:text-gray-400 italic">{t("projects.comingSoon")}</p>
 ) : (
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
     {
@@ -39,13 +48,13 @@ const PROJECTS = projectsData as Array<{
               {github && (
                 <LinkButton href={github}>
                   <GitHub class="size-5" />
-                  Code
+                  {t("projects.code")}
                 </LinkButton>
               )}
               {link && (
                 <LinkButton href={link}>
                   <ExternalLink class="size-4" />
-                  Preview
+                  {t("projects.preview")}
                 </LinkButton>
               )}
             </footer>

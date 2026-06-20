@@ -1,15 +1,24 @@
 ---
-import skillsData from "@/data/skills.json"
+import skillsEs from "@/data/es/skills.json"
+import skillsEn from "@/data/en/skills.json"
+import { useTranslations, type Lang } from "@/i18n/utils"
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
 
 const initials = "NS"
 
 const stats = [
-  { value: "+5", label: "años de experiencia" },
-  { value: "30+", label: "proyectos entregados" },
-  { value: "C1", label: "inglés avanzado" },
+  { value: "+5", label: t("about.stat.years") },
+  { value: "30+", label: t("about.stat.projects") },
+  { value: "C1", label: t("about.stat.english") },
 ]
 
-const SKILLS = skillsData as Array<{ category: string; items: string[] }>
+const SKILLS = (lang === "en" ? skillsEn : skillsEs) as Array<{ category: string; items: string[] }>
 ---
 
 <article class="flex flex-col gap-12">
@@ -19,8 +28,8 @@ const SKILLS = skillsData as Array<{ category: string; items: string[] }>
         {initials}
         <span
           class="absolute -bottom-2 -right-2 flex size-8 items-center justify-center rounded-full bg-green-500 text-xs ring-4 ring-white dark:ring-gray-950"
-          title="Disponible para trabajar"
-          aria-label="Disponible para trabajar"
+          title={t("about.available")}
+          aria-label={t("about.available")}
         >
           ✓
         </span>
@@ -28,28 +37,9 @@ const SKILLS = skillsData as Array<{ category: string; items: string[] }>
     </div>
 
     <div class="order-2 flex-1 text-pretty text-gray-700 dark:text-gray-300 [&>p]:mb-4 [&>p>strong]:font-mono [&>p>strong]:font-normal [&>p>strong]:text-violet-500 dark:[&>p>strong]:text-violet-200">
-      <p>
-        Soy Nahuel, desarrollador FullStack con base en Catamarca, Argentina. Llevo más
-        de 4 años construyendo aplicaciones web con <strong>React, TypeScript, Next.js y
-        Laravel</strong>, desde plataformas ciudadanas hasta sistemas de votación en tiempo
-        real con miles de usuarios concurrentes.
-      </p>
-
-      <p>
-        Trabajo actualmente como <strong>Desarrollador Frontend en la Municipalidad de
-        Catamarca Capital</strong>, donde diseño y mantengo plataformas administrativas
-        y de acceso público. En paralelo, tomo proyectos freelance donde modernizo
-        sistemas de gestión reemplazando flujos basados en Excel por aplicaciones web
-        reales, con CI/CD desde el primer día.
-      </p>
-
-      <p>
-        Me interesa particularmente el punto de encuentro entre <strong>buen diseño de
-        interfaz y arquitectura sólida</strong>: que una herramienta interna se sienta
-        tan cuidada como un producto. Fuera del trabajo, sigo explorando el ecosistema
-        frontend y construyendo proyectos propios para resolver problemas reales,
-        incluido uno para organizar mi colección de manga.
-      </p>
+      <p set:html={t("about.p1")} />
+      <p set:html={t("about.p2")} />
+      <p set:html={t("about.p3")} />
     </div>
   </div>
 

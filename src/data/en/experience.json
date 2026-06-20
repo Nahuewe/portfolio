@@ -1,0 +1,31 @@
+{
+  "professional": [
+    {
+      "date": "February 2023 – Present",
+      "title": "Frontend Developer",
+      "company": "Municipalidad de Catamarca Capital",
+      "description": "Design and development of administrative and public-facing platforms, cutting delivery times by 50%. Implemented CI/CD pipelines, reducing production errors by more than 80%. Automated repetitive processes with UiPath and added automated testing with Jest.",
+      "current": true
+    }
+  ],
+  "freelance": [
+    {
+      "date": "June 2025 – July 2025",
+      "title": "FullStack Developer",
+      "company": "SUTEPA",
+      "description": "Built a real-time voting system with React, Laravel and WebSockets, ensuring high availability and instant results. Designed participation dashboards with geographic segmentation. Optimized architecture and data flows, improving operational efficiency by 60%."
+    },
+    {
+      "date": "September 2024 – October 2024",
+      "title": "FullStack Developer",
+      "company": "Escuela EDJA N°4",
+      "description": "Modernized the teacher and student management system with Laravel and React, replacing inefficient Excel-based processes. Implemented CI/CD with GitHub Actions and optimized components and queries, cutting delivery times by 40%."
+    },
+    {
+      "date": "February 2024 – July 2024",
+      "title": "FullStack Developer",
+      "company": "SUTEPA",
+      "description": "Modernized the academic management system, replacing Excel-based processes with a Laravel and React platform. Implemented CI/CD with GitHub Actions and optimized queries and components, cutting delivery times by 40%."
+    }
+  ]
+}

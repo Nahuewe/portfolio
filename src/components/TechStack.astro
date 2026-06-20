@@ -1,19 +1,28 @@
 ---
+import { useTranslations, type Lang } from "@/i18n/utils"
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
 const groups = {
-  Especialización: [
+  [t("stack.specialization")]: [
     "React",
     "Next.js",
     "Astro",
     "TypeScript",
     "Laravel"
   ],
-  Infraestructura: [
+  [t("stack.infrastructure")]: [
     "Docker",
     "GitHub Actions",
     "Linux",
     "CI/CD"
   ],
-  Datos: [
+  [t("stack.data")]: [
     "PostgreSQL",
     "MySQL",
     "Supabase",

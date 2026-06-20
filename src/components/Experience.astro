@@ -1,6 +1,16 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
-import experience from "@/data/experience.json"
+import experienceEs from "@/data/es/experience.json"
+import experienceEn from "@/data/en/experience.json"
+import { useTranslations, type Lang } from "@/i18n/utils"
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+const experience = lang === "en" ? experienceEn : experienceEs
 ---
 
 <div class="space-y-20">
@@ -8,11 +18,11 @@ import experience from "@/data/experience.json"
   <div>
     <div class="mb-8">
       <h3 class="text-2xl font-bold text-white">
-        Experiencia Profesional
+        {t("experience.professional.title")}
       </h3>
 
       <p class="mt-2 text-neutral-400">
-        Experiencia en organismos públicos y desarrollo de plataformas de alto impacto.
+        {t("experience.professional.subtitle")}
       </p>
     </div>
 
@@ -20,7 +30,7 @@ import experience from "@/data/experience.json"
       {
         experience.professional.map((exp, i) => (
           <li class="anim-fade-in" style={`animation-delay: ${i * 150}ms`}>
-            <ExperienceItem {...exp} />
+            <ExperienceItem {...exp} lang={lang} />
           </li>
         ))
       }
@@ -30,11 +40,11 @@ import experience from "@/data/experience.json"
   <div>
     <div class="mb-8">
       <h3 class="text-2xl font-bold text-violet-400">
-        Proyectos Freelance
+        {t("experience.freelance.title")}
       </h3>
 
       <p class="mt-2 text-neutral-400">
-        Soluciones desarrolladas para organizaciones educativas y sindicales.
+        {t("experience.freelance.subtitle")}
       </p>
     </div>
 
@@ -42,7 +52,7 @@ import experience from "@/data/experience.json"
       {
         experience.freelance.map((exp, i) => (
           <li class="anim-fade-in" style={`animation-delay: ${i * 150}ms`}>
-            <ExperienceItem {...exp} />
+            <ExperienceItem {...exp} lang={lang} />
           </li>
         ))
       }
