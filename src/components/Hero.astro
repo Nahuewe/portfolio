@@ -12,6 +12,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-soria-parodi-en.pdf";
 ---
 
 <div class="max-w-4xl">
@@ -170,6 +171,15 @@ const t = useTranslations(lang);
       mt-10"
     aria-label={t("nav.aria")}
   >
+    <a
+      href={cvHref}
+      download
+      class="inline-flex items-center justify-center gap-2 px-4 py-1 text-white transition bg-violet-600 border border-violet-600 rounded-full text-md hover:bg-violet-500 hover:border-violet-500 max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-violet-700"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M12 15V3" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg>
+      {t("hero.cv")}
+    </a>
+
     <SocialPill href="mailto:nahuelsoriap@gmail.com">
       <MailIcon class="size-4" />
       {t("hero.contact")}

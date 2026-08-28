@@ -1,6 +1,8 @@
 ---
 import skillsEs from "@/data/es/skills.json"
 import skillsEn from "@/data/en/skills.json"
+import educationEs from "@/data/es/education.json"
+import educationEn from "@/data/en/education.json"
 import { useTranslations, type Lang } from "@/i18n/utils"
 
 interface Props {
@@ -19,6 +21,7 @@ const stats = [
 ]
 
 const SKILLS = (lang === "en" ? skillsEn : skillsEs) as Array<{ category: string; items: string[] }>
+const EDUCATION = (lang === "en" ? educationEn : educationEs) as Array<{ title: string; institution: string; date: string; description: string }>
 ---
 
 <article class="flex flex-col gap-12">
@@ -74,5 +77,28 @@ const SKILLS = (lang === "en" ? skillsEn : skillsEs) as Array<{ category: string
         </div>
       ))
     }
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+      {t("about.education")}
+    </h3>
+
+    <ul class="flex flex-col gap-4">
+      {
+        EDUCATION.map(({ title, institution, date, description }) => (
+          <li class="rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-900/40 sm:flex sm:items-start sm:justify-between sm:gap-6 sm:p-5">
+            <div>
+              <p class="font-semibold text-gray-900 dark:text-white">{title}</p>
+              <p class="text-sm text-violet-500 dark:text-violet-300">{institution}</p>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{description}</p>
+            </div>
+            <span class="mt-2 block shrink-0 text-xs font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+              {date}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </article>

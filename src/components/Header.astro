@@ -10,6 +10,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const base = lang === "es" ? "" : "/en";
+const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-soria-parodi-en.pdf";
 
 const navItems = [
   {
@@ -117,6 +118,26 @@ const navItems = [
         }
 
         <a
+          href={cvHref}
+          download
+          class="
+            rounded-xl
+            border
+            border-violet-500/30
+            px-4
+            py-3
+            text-center
+            font-semibold
+            text-violet-500
+            transition-colors
+            hover:bg-violet-500/10
+            cursor-pointer
+          "
+        >
+          {t("nav.cv")}
+        </a>
+
+        <a
           href={`${base}/#contacto`}
           class="
             mt-2
@@ -175,6 +196,27 @@ const navItems = [
           </a>
         ))
       }
+
+      <a
+        href={cvHref}
+        download
+        class="
+          ml-2
+          rounded-full
+          border
+          border-violet-500/30
+          px-4
+          py-2
+          text-sm
+          font-semibold
+          text-violet-500
+          transition-colors
+          hover:bg-violet-500/10
+          cursor-pointer
+        "
+      >
+        {t("nav.cv")}
+      </a>
 
       <a
         href={`${base}/#contacto`}

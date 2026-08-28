@@ -20,6 +20,7 @@ export const ui = {
     "nav.contact": "Contactar",
     "nav.menu": "Menú",
     "nav.aria": "Redes sociales y contacto",
+    "nav.cv": "Descargar CV",
 
     "hero.available": "Disponible para trabajar",
     "hero.role": "Desarrollador FullStack",
@@ -34,16 +35,20 @@ export const ui = {
     "hero.metric.modules": "Módulos integrados",
     "hero.stack.label": "Stack principal",
     "hero.contact": "Contáctame",
+    "hero.cv": "Descargar CV",
 
     "footer.madeWith": "Hecho con",
     "footer.rights": "Todos los derechos reservados",
     "footer.contact": "Contacto",
+    "footer.cv.es": "CV (Español)",
+    "footer.cv.en": "CV (English)",
 
     "about.title": "Sobre mí",
     "about.available": "Disponible para trabajar",
     "about.stat.years": "años de experiencia",
     "about.stat.projects": "proyectos entregados",
     "about.stat.english": "inglés avanzado",
+    "about.education": "Formación",
     "about.p1":
       'Soy Nahuel, desarrollador FullStack con base en Catamarca, Argentina. Llevo más de 4 años construyendo aplicaciones web con <strong>React, TypeScript, Next.js y Laravel</strong>, desde plataformas ciudadanas hasta sistemas de votación en tiempo real con miles de usuarios concurrentes.',
     "about.p2":
@@ -110,6 +115,7 @@ export const ui = {
     "nav.contact": "Contact",
     "nav.menu": "Menu",
     "nav.aria": "Social links and contact",
+    "nav.cv": "Download Resume",
 
     "hero.available": "Available for work",
     "hero.role": "FullStack Developer",
@@ -124,16 +130,20 @@ export const ui = {
     "hero.metric.modules": "Integrated modules",
     "hero.stack.label": "Core stack",
     "hero.contact": "Contact me",
+    "hero.cv": "Download Resume",
 
     "footer.madeWith": "Made with",
     "footer.rights": "All rights reserved",
     "footer.contact": "Contact",
+    "footer.cv.es": "Resume (Spanish)",
+    "footer.cv.en": "Resume (English)",
 
     "about.title": "About me",
     "about.available": "Available for work",
     "about.stat.years": "years of experience",
     "about.stat.projects": "projects delivered",
     "about.stat.english": "advanced English",
+    "about.education": "Education",
     "about.p1":
       "I'm Nahuel, a FullStack developer based in Catamarca, Argentina. I've spent over 4 years building web applications with <strong>React, TypeScript, Next.js and Laravel</strong>, from citizen platforms to real-time voting systems with thousands of concurrent users.",
     "about.p2":

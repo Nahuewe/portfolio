@@ -5,10 +5,10 @@
   },
   {
     "category": "Backend",
-    "items": ["Laravel", "Node.js", "Express", "REST APIs", "WebSockets", "PHP", "MySQL", "MongoDB", "PostgreSQL"]
+    "items": ["Laravel", "Node.js", "NestJS", "Express", "REST APIs", "WebSockets", "PHP", "MySQL", "MongoDB", "PostgreSQL"]
   },
   {
     "category": "DevOps & Tools",
-    "items": ["Git", "GitHub Actions", "CI/CD", "Jest", "Docker", "Supabase"]
+    "items": ["Git", "GitHub Actions", "CI/CD", "Jest", "Docker", "Supabase", "UiPath (RPA)"]
   }
 ]

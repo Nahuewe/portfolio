@@ -25,7 +25,7 @@
       "date": "February 2024 – July 2024",
       "title": "FullStack Developer",
       "company": "SUTEPA",
-      "description": "Modernized the academic management system, replacing Excel-based processes with a Laravel and React platform. Implemented CI/CD with GitHub Actions and optimized queries and components, cutting delivery times by 40%."
+      "description": "Built an affiliate management system that improved information flow by 60%. Developed reusable and scalable components with React and Laravel, cutting development time by 50%. Implemented advanced Excel exports and real-time statistics dashboards, with tracking panels by affiliate type and geographic distribution."
     }
   ]
 }

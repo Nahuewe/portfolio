@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Ciberseguridad",
+    "institution": "Coderhouse",
+    "date": "Junio 2025 – Julio 2025",
+    "description": "Auditorías básicas de seguridad y uso de herramientas como OWASP ZAP."
+  },
+  {
+    "title": "Diplomatura en Programación Web FullStack",
+    "institution": "Universidad Tecnológica Nacional (UTN)",
+    "date": "Febrero 2022 – Febrero 2023",
+    "description": "Fundamentos sólidos de programación, con foco en React para frontend y Node.js con Express para backend."
+  },
+  {
+    "title": "JavaScript",
+    "institution": "Coderhouse",
+    "date": "Enero 2022 – Marzo 2022",
+    "description": "Interactividad en aplicaciones usando ES6+, manipulación del DOM y APIs REST."
+  },
+  {
+    "title": "Desarrollo Web",
+    "institution": "Coderhouse",
+    "date": "Noviembre 2021 – Enero 2022",
+    "description": "Sitio web responsivo desarrollado con HTML5, CSS3 y Bootstrap."
+  }
+]

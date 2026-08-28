@@ -22,8 +22,18 @@ const currentYear = new Date().getFullYear()
       <a href="https://linkedin.com/in/nahuelsoriaparodi" class="hover:underline">Nahuel Soria Parodi</a>. {t("footer.madeWith")} <HeartFilled class="size-3.5 text-red-500 inline" aria-label={lang === "es" ? "amor" : "love"} /> {t("footer.rights")}
     </span>
     <ul
-      class="flex flex-wrap items-center text-sm font-medium dark:text-white/90"
+      class="flex flex-wrap items-center gap-4 text-sm font-medium dark:text-white/90"
     >
+      <li>
+        <a href="/cv-nahuel-soria-parodi-es.pdf" download class="hover:underline"
+          >{t("footer.cv.es")}</a
+        >
+      </li>
+      <li>
+        <a href="/cv-nahuel-soria-parodi-en.pdf" download class="hover:underline"
+          >{t("footer.cv.en")}</a
+        >
+      </li>
       <li>
         <a id="contacto" href="mailto:nahuelsoriap@gmail.com" class="hover:underline"
           >{t("footer.contact")}</a
