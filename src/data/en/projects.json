@@ -1,41 +1,88 @@
 [
   {
     "title": "Municipal Dashboard",
-    "description": "Administrative platform centralizing 24 municipal management modules with SSO authentication via Keycloak, TanStack Query, Docker and scalable architecture.",
-    "tags": [
-      "Next.js 15",
-      "TypeScript",
-      "TanStack Query",
-      "Keycloak",
-      "Docker"
-    ]
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Administrative platform centralizing 24 municipal management modules behind a single sign-on.",
+    "highlights": [
+      "SSO authentication with Keycloak",
+      "Server state with TanStack Query and Docker deployment",
+      "Dark mode with semantic tokens and theme-aware Recharts charts"
+    ],
+    "tags": ["Next.js 15", "TypeScript", "Keycloak", "TanStack Query", "shadcn/ui", "Recharts", "Docker"]
   },
   {
-    "title": "Revenue Collection System",
-    "description": "Financial dashboard with advanced filters, date-based reports, collection indicators and operational performance analysis.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Laravel",
-      "Charts"
-    ]
+    "title": "Municipal Fines Payments",
+    "org": "Municipal Traffic Court",
+    "access": "public",
+    "description": "Payment system for citizens: look up the infraction, pay it and download an official receipt.",
+    "highlights": [
+      "Payment by MercadoPago QR and by card through Banco Galicia NAVE",
+      "Receipt styled as an Argentine fiscal document, PDF generated with Gotenberg",
+      "Receipt persisted in the backend so it can be recovered after the payment processor redirect"
+    ],
+    "tags": ["React", "JavaScript", "MercadoPago", "Banco Galicia NAVE", "Gotenberg"],
+    "link": "https://pagos-juzgado.apps.cc.gob.ar/"
+  },
+  {
+    "title": "Traffic Court Portal",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "public",
+    "description": "Citizen-facing site with department-specific forms and case follow-up.",
+    "highlights": [
+      "Forms for Traffic, Food Safety, General Inspection and Public Works",
+      "Submission and lookup of statements with image and video attachments",
+      "Custom Tailwind design tokens, styled after a municipal ledger"
+    ],
+    "tags": ["React", "TypeScript", "Tailwind CSS"],
+    "link": "https://info-juzgado.apps.cc.gob.ar/"
+  },
+  {
+    "title": "Digital Newspaper Archive",
+    "org": "Secretariats of Modernization and Culture",
+    "access": "public",
+    "description": "Digital archive of historical Catamarca newspapers, with a searchable library catalog.",
+    "highlights": [
+      "PDF viewer with page-flip animation, optimized for mobile",
+      "Content in Directus CMS and catalog integrated with the Koha API",
+      "Catalog with pagination and modal detail views"
+    ],
+    "tags": ["React", "TypeScript", "Vite", "Directus", "Koha"],
+    "link": "https://hemerotecamunicipal.apps.cc.gob.ar/"
   },
   {
     "title": "Real-Time Voting System",
-    "description": "Voting platform for SUTEPA with instant results, geographic segmentation and participation dashboards.",
-    "tags": [
-      "React",
-      "Laravel",
-      "WebSockets"
-    ]
+    "org": "SUTEPA · Freelance",
+    "access": "login",
+    "description": "Voting platform with instant results and geographic segmentation of participation.",
+    "highlights": [
+      "WebSockets to update results without reloading",
+      "Participation dashboards by zone",
+      "60% operational efficiency gain after optimizing architecture and data flows"
+    ],
+    "tags": ["React", "Laravel", "WebSockets"]
   },
   {
-    "title": "Manga Collection Manager",
-    "description": "Collection management system with Excel import, change history, automatic changelog, statistics and Supabase.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Supabase"
-    ]
+    "title": "Revenue Collection System",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Financial dashboard to track revenue collection and operational performance.",
+    "highlights": [
+      "Advanced filters and date-range reports",
+      "Collection indicators and analysis charts"
+    ],
+    "tags": ["React", "TypeScript", "Laravel", "Charts"]
+  },
+  {
+    "title": "Personal Finance Dashboard",
+    "org": "Own project",
+    "access": "personal",
+    "description": "Analysis of my own spending recorded since 2023, with forecasting and recurring expense detection.",
+    "highlights": [
+      "Projection tab with expense forecasting",
+      "Automatic recurring expense detector",
+      "Excel import"
+    ],
+    "tags": ["Astro", "Chart.js", "SheetJS", "Tailwind CSS"]
   }
 ]

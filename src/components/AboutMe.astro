@@ -27,7 +27,7 @@ const EDUCATION = (lang === "en" ? educationEn : educationEs) as Array<{ title: 
 <article class="flex flex-col gap-12">
   <div class="flex flex-col items-center gap-8 md:flex-row md:items-start">
     <div class="order-1 flex-shrink-0">
-      <div class="relative flex size-28 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-400 to-violet-200 text-3xl font-bold text-gray-900 shadow-lg dark:from-violet-400/90 dark:to-violet-600/60 md:size-32">
+      <div class="relative flex size-28 items-center justify-center rounded-2xl bg-gradient-to-br from-sello-400 to-sello-200 text-3xl font-bold text-gray-900 shadow-lg dark:from-sello-400/90 dark:to-sello-600/60 md:size-32">
         {initials}
         <span
           class="absolute -bottom-2 -right-2 flex size-8 items-center justify-center rounded-full bg-green-500 text-xs ring-4 ring-white dark:ring-gray-950"
@@ -39,7 +39,7 @@ const EDUCATION = (lang === "en" ? educationEn : educationEs) as Array<{ title: 
       </div>
     </div>
 
-    <div class="order-2 flex-1 text-pretty text-gray-700 dark:text-gray-300 [&>p]:mb-4 [&>p>strong]:font-mono [&>p>strong]:font-normal [&>p>strong]:text-violet-500 dark:[&>p>strong]:text-violet-200">
+    <div class="order-2 flex-1 text-pretty text-gray-700 dark:text-gray-300 [&>p]:mb-4 [&>p>strong]:font-mono [&>p>strong]:font-normal [&>p>strong]:text-sello-500 dark:[&>p>strong]:text-sello-200">
       <p set:html={t("about.p1")} />
       <p set:html={t("about.p2")} />
       <p set:html={t("about.p3")} />
@@ -69,7 +69,7 @@ const EDUCATION = (lang === "en" ? educationEn : educationEs) as Array<{ title: 
           </h3>
           <ul class="flex flex-wrap gap-2">
             {items.map((item) => (
-              <li class="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-violet-400/60 hover:text-gray-900 dark:border-gray-800 dark:bg-gray-900/60 dark:text-gray-300 dark:hover:border-violet-400/40 dark:hover:text-white">
+              <li class="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-sello-400/60 hover:text-gray-900 dark:border-gray-800 dark:bg-gray-900/60 dark:text-gray-300 dark:hover:border-sello-400/40 dark:hover:text-white">
                 {item}
               </li>
             ))}
@@ -90,7 +90,7 @@ const EDUCATION = (lang === "en" ? educationEn : educationEs) as Array<{ title: 
           <li class="rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-900/40 sm:flex sm:items-start sm:justify-between sm:gap-6 sm:p-5">
             <div>
               <p class="font-semibold text-gray-900 dark:text-white">{title}</p>
-              <p class="text-sm text-violet-500 dark:text-violet-300">{institution}</p>
+              <p class="text-sm text-sello-500 dark:text-sello-300">{institution}</p>
               <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{description}</p>
             </div>
             <span class="mt-2 block shrink-0 text-xs font-medium text-gray-500 dark:text-gray-400 sm:mt-0">

@@ -54,7 +54,7 @@ export const ui = {
     "about.p2":
       "Trabajo actualmente como <strong>Desarrollador Frontend en la Municipalidad de Catamarca Capital</strong>, donde diseño y mantengo plataformas administrativas y de acceso público. En paralelo, tomo proyectos freelance donde modernizo sistemas de gestión reemplazando flujos basados en Excel por aplicaciones web reales, con CI/CD desde el primer día.",
     "about.p3":
-      "Me interesa particularmente el punto de encuentro entre <strong>buen diseño de interfaz y arquitectura sólida</strong>: que una herramienta interna se sienta tan cuidada como un producto. Fuera del trabajo, sigo explorando el ecosistema frontend y construyendo proyectos propios para resolver problemas reales, incluido uno para organizar mi colección de manga.",
+      "Me interesa particularmente el punto de encuentro entre <strong>buen diseño de interfaz y arquitectura sólida</strong>: que una herramienta interna se sienta tan cuidada como un producto. Fuera del trabajo, sigo explorando el ecosistema frontend y construyendo proyectos propios para resolver problemas reales.",
 
     "services.title": "Lo que hago",
     "services.list": [
@@ -87,6 +87,11 @@ export const ui = {
     "projects.comingSoon": "Próximamente...",
     "projects.code": "Código",
     "projects.preview": "Vista previa",
+    "projects.subtitle": "Casi todos son sistemas internos o con login. Por eso cada uno indica su nivel de acceso y qué se puede ver.",
+    "projects.access.public": "Acceso público",
+    "projects.access.login": "Con login",
+    "projects.access.personal": "Personal",
+    "projects.restricted": "Sistema con acceso restringido. Demo guiada disponible a pedido.",
 
     "currently.badge": "Actualmente",
     "currently.title": "En qué estoy trabajando",
@@ -149,7 +154,7 @@ export const ui = {
     "about.p2":
       "I currently work as a <strong>Frontend Developer at the Municipalidad de Catamarca Capital</strong>, where I design and maintain administrative and public-facing platforms. Alongside that, I take on freelance projects where I modernize management systems, replacing Excel-based workflows with real web applications, with CI/CD from day one.",
     "about.p3":
-      "I'm particularly interested in the intersection of <strong>good interface design and solid architecture</strong>: making an internal tool feel as polished as a product. Outside of work, I keep exploring the frontend ecosystem and building my own projects to solve real problems, including one to organize my manga collection.",
+      "I'm particularly interested in the intersection of <strong>good interface design and solid architecture</strong>: making an internal tool feel as polished as a product. Outside of work, I keep exploring the frontend ecosystem and building my own projects to solve real problems.",
 
     "services.title": "What I do",
     "services.list": [
@@ -182,6 +187,11 @@ export const ui = {
     "projects.comingSoon": "Coming soon...",
     "projects.code": "Code",
     "projects.preview": "Preview",
+    "projects.subtitle": "Most of these are internal or login-protected systems, so each one states its access level and what can be seen.",
+    "projects.access.public": "Public access",
+    "projects.access.login": "Login required",
+    "projects.access.personal": "Personal",
+    "projects.restricted": "Restricted-access system. Guided demo available on request.",
 
     "currently.badge": "Currently",
     "currently.title": "What I'm working on",

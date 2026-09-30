@@ -14,9 +14,9 @@ const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-so
 
 const navItems = [
   {
-    title: t("nav.services"),
-    label: "servicios",
-    url: `${base}/#servicios`,
+    title: t("nav.projects"),
+    label: "proyectos",
+    url: `${base}/#proyectos`,
   },
   {
     title: t("nav.experience"),
@@ -24,14 +24,9 @@ const navItems = [
     url: `${base}/#experiencia`,
   },
   {
-    title: t("nav.stack"),
-    label: "stack",
-    url: `${base}/#stack`,
-  },
-  {
-    title: t("nav.projects"),
-    label: "proyectos",
-    url: `${base}/#proyectos`,
+    title: t("nav.services"),
+    label: "servicios",
+    url: `${base}/#servicios`,
   },
   {
     title: t("nav.about"),
@@ -108,8 +103,8 @@ const navItems = [
                 px-4
                 py-3
                 transition-colors
-                hover:bg-violet-500/10
-                hover:text-violet-500
+                hover:bg-sello-500/10
+                hover:text-sello-500
               "
             >
               {link.title}
@@ -123,14 +118,14 @@ const navItems = [
           class="
             rounded-xl
             border
-            border-violet-500/30
+            border-sello-500/30
             px-4
             py-3
             text-center
             font-semibold
-            text-violet-500
+            text-sello-500
             transition-colors
-            hover:bg-violet-500/10
+            hover:bg-sello-500/10
             cursor-pointer
           "
         >
@@ -142,14 +137,14 @@ const navItems = [
           class="
             mt-2
             rounded-xl
-            bg-violet-600
+            bg-sello-600
             px-4
             py-3
             text-center
             font-semibold
             text-white
             transition-all
-            hover:bg-violet-500
+            hover:bg-sello-500
             cursor-pointer
           "
         >
@@ -186,8 +181,8 @@ const navItems = [
               text-sm
               transition-colors
               duration-200
-              hover:text-violet-500
-              dark:hover:text-violet-400
+              hover:text-sello-500
+              dark:hover:text-sello-400
             "
             aria-label={link.label}
             href={link.url}
@@ -204,14 +199,14 @@ const navItems = [
           ml-2
           rounded-full
           border
-          border-violet-500/30
+          border-sello-500/30
           px-4
           py-2
           text-sm
           font-semibold
-          text-violet-500
+          text-sello-500
           transition-colors
-          hover:bg-violet-500/10
+          hover:bg-sello-500/10
           cursor-pointer
         "
       >
@@ -223,14 +218,14 @@ const navItems = [
         class="
           ml-2
           rounded-full
-          bg-violet-600
+          bg-sello-600
           px-4
           py-2
           text-sm
           font-semibold
           text-white
           transition-all
-          hover:bg-violet-500
+          hover:bg-sello-500
           hover:scale-105
           cursor-pointer
         "
@@ -268,17 +263,17 @@ const navItems = [
             item.getAttribute("aria-label") === entry.target.id;
 
           item.classList.toggle(
-            "text-violet-500",
+            "text-sello-500",
             active,
           );
 
           item.classList.toggle(
-            "dark:text-violet-400",
+            "dark:text-sello-400",
             active,
           );
 
           item.classList.toggle(
-            "bg-violet-500/10",
+            "bg-sello-500/10",
             active,
           );
 

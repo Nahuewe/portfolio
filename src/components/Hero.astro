@@ -33,7 +33,7 @@ const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-so
       text-sm
       uppercase
       tracking-[0.25em]
-      text-violet-400
+      text-sello-400
       font-medium"
   >
     {t("hero.role")}
@@ -61,104 +61,18 @@ const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-so
       text-neutral-600
       dark:text-neutral-400"
   >
-    {t("hero.intro.before")} <span class="font-semibold text-violet-500">{t("hero.intro.name")}</span>{t("hero.intro.after")}
+    {t("hero.intro.before")} <span class="font-semibold text-sello-500">{t("hero.intro.name")}</span>{t("hero.intro.after")}
   </p>
 
-  <!-- MÉTRICAS -->
-  <div
-    class="anim-fade-in
-      anim-delay-2
-      mt-10
-      grid
-      gap-4
-      sm:grid-cols-3"
-  >
-    <div
-      class="rounded-2xl
-        border
-        border-violet-500/15
-        bg-violet-500/5
-        p-5"
-    >
-      <div class="text-3xl font-bold text-violet-400">5+</div>
+  <dl class="anim-fade-in anim-delay-2 mt-10 grid max-w-2xl grid-cols-3 border-y border-black/15 py-5 dark:border-white/15">
+    <div><dd class="text-3xl font-bold text-sello-500 dark:text-sello-400">5+</dd><dt class="mt-1 text-sm text-neutral-500">{t("hero.metric.years")}</dt></div>
+    <div><dd class="text-3xl font-bold text-sello-500 dark:text-sello-400">30+</dd><dt class="mt-1 text-sm text-neutral-500">{t("hero.metric.projects")}</dt></div>
+    <div><dd class="text-3xl font-bold text-sello-500 dark:text-sello-400">24</dd><dt class="mt-1 text-sm text-neutral-500">{t("hero.metric.modules")}</dt></div>
+  </dl>
 
-      <p class="mt-1 text-sm text-neutral-500">{t("hero.metric.years")}</p>
-    </div>
-
-    <div
-      class="rounded-2xl
-        border
-        border-violet-500/15
-        bg-violet-500/5
-        p-5"
-    >
-      <div class="text-3xl font-bold text-violet-400">30+</div>
-
-      <p class="mt-1 text-sm text-neutral-500">{t("hero.metric.projects")}</p>
-    </div>
-
-    <div
-      class="rounded-2xl
-        border
-        border-violet-500/15
-        bg-violet-500/5
-        p-5"
-    >
-      <div class="text-3xl font-bold text-violet-400">18</div>
-
-      <p class="mt-1 text-sm text-neutral-500">{t("hero.metric.modules")}</p>
-    </div>
-  </div>
-
-  <!-- STACK -->
-  <div class="anim-fade-in
-      anim-delay-3
-      mt-10">
-    <p
-      class="mb-4
-        text-xs
-        uppercase
-        tracking-[0.25em]
-        text-neutral-500"
-    >
-      {t("hero.stack.label")}
-    </p>
-
-    <div class="flex flex-wrap gap-2">
-      {
-        [
-          "React",
-          "Next.js",
-          "Astro",
-          "TypeScript",
-          "Laravel",
-          "Docker",
-          "PostgreSQL",
-          "Supabase",
-        ].map((tech) => (
-          <span
-            class="
-              rounded-full
-              border
-              border-violet-500/20
-              bg-violet-500/5
-              px-4
-              py-2
-              text-sm
-              font-medium
-              text-violet-300
-              transition-all
-              duration-200
-              hover:-translate-y-0.5
-              hover:border-violet-400/40
-              hover:bg-violet-500/10
-            "
-          >
-            {tech}
-          </span>
-        ))
-      }
-    </div>
+  <div class="anim-fade-in anim-delay-3 mt-8">
+    <p class="mb-2 font-mono text-xs uppercase tracking-[0.25em] text-neutral-500">{t("hero.stack.label")}</p>
+    <p class="font-mono text-sm text-neutral-700 dark:text-neutral-300">React / Next.js / Astro / TypeScript / Laravel / Docker / PostgreSQL / Supabase</p>
   </div>
 
   <!-- BOTONES -->
@@ -174,7 +88,7 @@ const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-so
     <a
       href={cvHref}
       download
-      class="inline-flex items-center justify-center gap-2 px-4 py-1 text-white transition bg-violet-600 border border-violet-600 rounded-full text-md hover:bg-violet-500 hover:border-violet-500 max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-violet-700"
+      class="inline-flex items-center justify-center gap-2 px-4 py-1 text-white transition bg-sello-600 border border-sello-600 rounded-full text-md hover:bg-sello-500 hover:border-sello-500 max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-sello-700"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M12 15V3" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg>
       {t("hero.cv")}
@@ -190,7 +104,7 @@ const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-so
       LinkedIn
     </SocialPill>
 
-    <SocialPill href="https://github.com/nahuelsoriaparodi">
+    <SocialPill href="https://github.com/Nahuewe">
       <GitHubIcon class="size-4" />
       GitHub
     </SocialPill>

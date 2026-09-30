@@ -1,10 +1,22 @@
 ---
-import GitHub from "./icons/GitHub.astro"
 import ExternalLink from "./icons/ExternalLink.astro"
+import GitHub from "./icons/GitHub.astro"
 import LinkButton from "./LinkButton.astro"
 import projectsEs from "@/data/es/projects.json"
 import projectsEn from "@/data/en/projects.json"
 import { useTranslations, type Lang } from "@/i18n/utils"
+
+interface Project {
+  title: string
+  org: string
+  access: "public" | "login" | "personal"
+  description: string
+  highlights: string[]
+  tags: string[]
+  link?: string
+  github?: string
+  media?: { src: string; alt: string }[]
+}
 
 interface Props {
   lang: Lang
@@ -12,55 +24,82 @@ interface Props {
 
 const { lang } = Astro.props
 const t = useTranslations(lang)
-
-const PROJECTS = (lang === "en" ? projectsEn : projectsEs) as Array<{
-  title: string
-  description: string
-  tags: string[]
-  link?: string
-  github?: string
-}>
+const PROJECTS = (lang === "en" ? projectsEn : projectsEs) as Project[]
+const accessLabel = {
+  public: t("projects.access.public"),
+  login: t("projects.access.login"),
+  personal: t("projects.access.personal"),
+}
+const tagClass = "font-mono text-xs uppercase tracking-wider text-sello-500 dark:text-sello-400"
 ---
 
-{PROJECTS.length === 0 ? (
-  <p class="mt-8 text-gray-500 dark:text-gray-400 italic">{t("projects.comingSoon")}</p>
-) : (
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-    {
-      PROJECTS.map(({ title, description, tags, link, github }) => (
-        <article class="group flex flex-col rounded-xl border border-gray-200 bg-white/60 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgba(251,191,36,0.2)] dark:border-gray-800 dark:bg-gray-900/40 dark:hover:border-violet-400/30">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">
-            {title}
-          </h3>
+<p class="mb-8 max-w-2xl text-pretty text-neutral-600 dark:text-neutral-400">
+  {t("projects.subtitle")}
+</p>
 
-          <ul class="mt-3 flex flex-row flex-wrap gap-2">
-            {tags.map((tag) => (
-              <li class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
-                {tag}
-              </li>
-            ))}
-          </ul>
+<ol class="border-t border-black/15 dark:border-white/15">
+  {
+    PROJECTS.map((p, i) => (
+      <li class="border-b border-black/15 dark:border-white/15">
+        <details class="group" open={i === 0}>
+          <summary class="grid cursor-pointer list-none grid-cols-[2rem_1fr_1.5rem] items-baseline gap-x-4 py-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sello-500 sm:grid-cols-[3rem_1fr_9rem_1.5rem] [&::-webkit-details-marker]:hidden">
+            <span class="font-mono text-sm text-neutral-500">{String(i + 1).padStart(2, "0")}</span>
+            <span>
+              <span class="block text-lg font-bold text-neutral-900 dark:text-white">{p.title}</span>
+              <span class="block text-sm text-neutral-500">{p.org}</span>
+              <span class={`mt-1 block sm:hidden ${tagClass}`}>{accessLabel[p.access]}</span>
+            </span>
+            <span class={`hidden sm:block ${tagClass}`}>{accessLabel[p.access]}</span>
+            <span aria-hidden="true" class="font-mono text-lg text-neutral-500 transition-transform group-open:rotate-45 motion-reduce:transition-none">+</span>
+          </summary>
 
-          <p class="mt-4 text-pretty text-gray-700 dark:text-gray-400">{description}</p>
+          <div class="pb-8 pl-12 sm:pl-16">
+            <p class="max-w-2xl text-pretty text-neutral-700 dark:text-neutral-300">{p.description}</p>
 
-          {(github || link) && (
-            <footer class="mt-5 flex items-center gap-x-4">
-              {github && (
-                <LinkButton href={github}>
-                  <GitHub class="size-5" />
-                  {t("projects.code")}
-                </LinkButton>
-              )}
-              {link && (
-                <LinkButton href={link}>
-                  <ExternalLink class="size-4" />
-                  {t("projects.preview")}
-                </LinkButton>
-              )}
-            </footer>
-          )}
-        </article>
-      ))
-    }
-  </div>
-)}
+            <ul class="mt-4 max-w-2xl space-y-2 text-sm text-neutral-700 dark:text-neutral-300">
+              {p.highlights.map((h) => (
+                <li class="flex gap-3">
+                  <span aria-hidden="true" class="text-sello-500 dark:text-sello-400">—</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+
+            {p.media && p.media.length > 0 && (
+              <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                {p.media.map((m) => (
+                  <img src={m.src} alt={m.alt} loading="lazy" class="w-full border border-black/15 dark:border-white/15" />
+                ))}
+              </div>
+            )}
+
+            <p class="mt-5 font-mono text-xs text-neutral-500">{p.tags.join("  ·  ")}</p>
+
+            {(p.github || p.link) && (
+              <div class="mt-5 flex flex-wrap items-center gap-3">
+                {p.link && (
+                  <LinkButton href={p.link}>
+                    <ExternalLink class="size-4" />
+                    {t("projects.preview")}
+                  </LinkButton>
+                )}
+                {p.github && (
+                  <LinkButton href={p.github}>
+                    <GitHub class="size-5" />
+                    {t("projects.code")}
+                  </LinkButton>
+                )}
+              </div>
+            )}
+
+            {p.access === "login" && !p.link && (
+              <p class="mt-5 max-w-2xl border-l-2 border-sello-500 pl-3 text-sm text-neutral-600 dark:text-neutral-400">
+                {t("projects.restricted")}
+              </p>
+            )}
+          </div>
+        </details>
+      </li>
+    ))
+  }
+</ol>
