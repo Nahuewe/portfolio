@@ -1,14 +1,63 @@
 [
   {
     "category": "Frontend",
-    "items": ["React", "TypeScript", "Next.js", "Astro", "Tailwind CSS", "JavaScript", "Angular"]
+    "items": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Astro",
+      "SolidJS",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "MUI",
+      "Redux Toolkit",
+      "TanStack Query",
+      "React Hook Form",
+      "Zod / Yup",
+      "Vite",
+      "Recharts",
+      "Leaflet (mapas)"
+    ]
   },
   {
     "category": "Backend",
-    "items": ["Laravel", "Node.js", "NestJS", "Express", "REST APIs", "WebSockets", "PHP", "MySQL", "MongoDB", "PostgreSQL"]
+    "items": [
+      "Laravel",
+      "PHP",
+      "NestJS",
+      "Node.js",
+      "Express",
+      "Python (Flask, FastAPI)",
+      "REST APIs",
+      "WebSockets",
+      "Prisma",
+      "Sequelize",
+      "Swagger / OpenAPI"
+    ]
   },
   {
-    "category": "DevOps & Herramientas",
-    "items": ["Git", "GitHub Actions", "CI/CD", "Jest", "Docker", "Supabase", "UiPath (RPA)"]
+    "category": "Datos y autenticación",
+    "items": [
+      "PostgreSQL",
+      "MySQL",
+      "Supabase",
+      "Directus (CMS)",
+      "Keycloak (SSO)",
+      "JWT / Sanctum",
+      "pandas"
+    ]
+  },
+  {
+    "category": "DevOps y calidad",
+    "items": [
+      "Docker",
+      "Git",
+      "GitHub Actions",
+      "CI/CD",
+      "Jest",
+      "Vitest",
+      "UiPath (RPA)"
+    ]
   }
 ]

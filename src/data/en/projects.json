@@ -9,7 +9,15 @@
       "Server state with TanStack Query and Docker deployment",
       "Dark mode with semantic tokens and theme-aware Recharts charts"
     ],
-    "tags": ["Next.js 15", "TypeScript", "Keycloak", "TanStack Query", "shadcn/ui", "Recharts", "Docker"]
+    "tags": [
+      "Next.js 15",
+      "TypeScript",
+      "Keycloak",
+      "TanStack Query",
+      "shadcn/ui",
+      "Recharts",
+      "Docker"
+    ]
   },
   {
     "title": "Municipal Fines Payments",
@@ -21,7 +29,13 @@
       "Receipt styled as an Argentine fiscal document, PDF generated with Gotenberg",
       "Receipt persisted in the backend so it can be recovered after the payment processor redirect"
     ],
-    "tags": ["React", "JavaScript", "MercadoPago", "Banco Galicia NAVE", "Gotenberg"],
+    "tags": [
+      "React",
+      "JavaScript",
+      "MercadoPago",
+      "Banco Galicia NAVE",
+      "Gotenberg"
+    ],
     "link": "https://pagos-juzgado.apps.cc.gob.ar/"
   },
   {
@@ -34,7 +48,11 @@
       "Submission and lookup of statements with image and video attachments",
       "Custom Tailwind design tokens, styled after a municipal ledger"
     ],
-    "tags": ["React", "TypeScript", "Tailwind CSS"],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
     "link": "https://info-juzgado.apps.cc.gob.ar/"
   },
   {
@@ -47,8 +65,102 @@
       "Content in Directus CMS and catalog integrated with the Koha API",
       "Catalog with pagination and modal detail views"
     ],
-    "tags": ["React", "TypeScript", "Vite", "Directus", "Koha"],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Directus",
+      "Koha"
+    ],
     "link": "https://hemerotecamunicipal.apps.cc.gob.ar/"
+  },
+  {
+    "title": "Mayor's Agenda",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "System to centralize the institutional agenda: events, contacts, organizations and metrics.",
+    "highlights": [
+      "NestJS, Prisma and PostgreSQL API documented with Swagger",
+      "Dashboard with charts and maps by zone",
+      "Users and permissions, thematic axes and event categories"
+    ],
+    "tags": [
+      "React",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "MUI",
+      "Leaflet"
+    ]
+  },
+  {
+    "title": "Traffic Court Management",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Internal system to record and resolve violations for Traffic, Food Safety, Public Works and Inspections.",
+    "highlights": [
+      "Records, notifications, case actions and document generation",
+      "Roles and permissions, change auditing and files on S3",
+      "React + TypeScript interface over a Laravel API documented with Swagger"
+    ],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Laravel",
+      "TanStack Query",
+      "Docker"
+    ]
+  },
+  {
+    "title": "Materials control",
+    "org": "Punto Giro · Municipality",
+    "access": "login",
+    "description": "Management of requests, stock per branch and material intake.",
+    "highlights": [
+      "Express, Sequelize and PostgreSQL API",
+      "Request calendar, stock dashboard and Meilisearch-powered search"
+    ],
+    "tags": [
+      "React",
+      "Redux Toolkit",
+      "Express",
+      "PostgreSQL",
+      "Docker"
+    ]
+  },
+  {
+    "title": "Municipal institutional website",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "public",
+    "description": "The Municipality's website, focused on institutional visibility and citizen access.",
+    "highlights": [
+      "Astro with interactive React components",
+      "Content editable in Directus CMS",
+      "Argentine Government Poncho styles for accessibility and visual consistency"
+    ],
+    "tags": [
+      "Astro",
+      "React",
+      "Directus",
+      "Leaflet"
+    ]
+  },
+  {
+    "title": "Dashboard data APIs",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Services feeding management dashboards for several areas: subsidies, contracts, scholarship recipients and business permits.",
+    "highlights": [
+      "Data processing and aggregation with pandas",
+      "Flask and FastAPI services deployed with Docker and GitHub Actions"
+    ],
+    "tags": [
+      "Python",
+      "Flask",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker"
+    ]
   },
   {
     "title": "Real-Time Voting System",
@@ -60,7 +172,11 @@
       "Participation dashboards by zone",
       "60% operational efficiency gain after optimizing architecture and data flows"
     ],
-    "tags": ["React", "Laravel", "WebSockets"]
+    "tags": [
+      "React",
+      "Laravel",
+      "WebSockets"
+    ]
   },
   {
     "title": "Revenue Collection System",
@@ -71,7 +187,12 @@
       "Advanced filters and date-range reports",
       "Collection indicators and analysis charts"
     ],
-    "tags": ["React", "TypeScript", "Laravel", "Charts"]
+    "tags": [
+      "React",
+      "TypeScript",
+      "Laravel",
+      "Charts"
+    ]
   },
   {
     "title": "Personal Finance Dashboard",
@@ -83,6 +204,11 @@
       "Automatic recurring expense detector",
       "Excel import"
     ],
-    "tags": ["Astro", "Chart.js", "SheetJS", "Tailwind CSS"]
+    "tags": [
+      "Astro",
+      "Chart.js",
+      "SheetJS",
+      "Tailwind CSS"
+    ]
   }
 ]

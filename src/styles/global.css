@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-sello-50: #fdf3ee;
+  --color-sello-100: #fbe3d6;
+  --color-sello-200: #f6c5ab;
+  --color-sello-300: #f0a37c;
+  --color-sello-400: #ea7f4d;
+  --color-sello-500: #c2410c;
+  --color-sello-600: #a8380a;
+  --color-sello-700: #872d08;
+  --color-sello-800: #6b2508;
+  --color-sello-900: #4f1c06;
+}
+
+/* Tailwind 4 usa currentColor por defecto en bordes; mantenemos el gris de v3 */
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
