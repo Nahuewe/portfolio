@@ -79,6 +79,99 @@
     "link": "https://hemerotecamunicipal.apps.cc.gob.ar/"
   },
   {
+    "slug": "agenda-intendente",
+    "title": "Mayor's Agenda",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "System to centralize the institutional agenda: events, contacts, organizations and metrics.",
+    "highlights": [
+      "NestJS, Prisma and PostgreSQL API documented with Swagger",
+      "Dashboard with charts and maps by zone",
+      "Users and permissions, thematic axes and event categories"
+    ],
+    "tags": [
+      "React",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "MUI",
+      "Leaflet"
+    ]
+  },
+  {
+    "slug": "gestion-juzgado-faltas",
+    "title": "Traffic Court Management",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Internal system to record and resolve violations for Traffic, Food Safety, Public Works and Inspections.",
+    "highlights": [
+      "Records, notifications, case actions and document generation",
+      "Roles and permissions, change auditing and files on S3",
+      "React + TypeScript interface over a Laravel API documented with Swagger"
+    ],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Laravel",
+      "TanStack Query",
+      "Docker"
+    ]
+  },
+  {
+    "slug": "control-materiales",
+    "title": "Materials control",
+    "org": "Punto Giro · Municipality",
+    "access": "login",
+    "description": "Management of requests, stock per branch and material intake.",
+    "highlights": [
+      "Express, Sequelize and PostgreSQL API",
+      "Request calendar, stock dashboard and Meilisearch-powered search"
+    ],
+    "tags": [
+      "React",
+      "Redux Toolkit",
+      "Express",
+      "PostgreSQL",
+      "Docker"
+    ]
+  },
+  {
+    "slug": "sitio-institucional",
+    "title": "Municipal institutional website",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "public",
+    "description": "The Municipality's website, focused on institutional visibility and citizen access.",
+    "highlights": [
+      "Astro with interactive React components",
+      "Content editable in Directus CMS",
+      "Argentine Government Poncho styles for accessibility and visual consistency"
+    ],
+    "tags": [
+      "Astro",
+      "React",
+      "Directus",
+      "Leaflet"
+    ]
+  },
+  {
+    "slug": "apis-dashboards",
+    "title": "Dashboard data APIs",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Services feeding management dashboards for several areas: subsidies, contracts, scholarship recipients and business permits.",
+    "highlights": [
+      "Data processing and aggregation with pandas",
+      "Flask and FastAPI services deployed with Docker and GitHub Actions"
+    ],
+    "tags": [
+      "Python",
+      "Flask",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker"
+    ]
+  },
+  {
     "slug": "votacion-tiempo-real",
     "title": "Real-Time Voting System",
     "org": "SUTEPA · Freelance",

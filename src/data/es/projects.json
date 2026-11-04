@@ -79,6 +79,99 @@
     "link": "https://hemerotecamunicipal.apps.cc.gob.ar/"
   },
   {
+    "slug": "agenda-intendente",
+    "title": "Agenda del Intendente",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Sistema para centralizar la agenda institucional: eventos, contactos, organizaciones y métricas.",
+    "highlights": [
+      "API con NestJS, Prisma y PostgreSQL, documentada con Swagger",
+      "Dashboard con gráficos y mapas por zona",
+      "Usuarios y permisos, ejes temáticos y categorías de eventos"
+    ],
+    "tags": [
+      "React",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "MUI",
+      "Leaflet"
+    ]
+  },
+  {
+    "slug": "gestion-juzgado-faltas",
+    "title": "Gestión del Juzgado de Faltas",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Sistema interno para registrar y resolver infracciones de Tránsito, Bromatología, Obras e Inspecciones.",
+    "highlights": [
+      "Actas, notificaciones, actuaciones y generación de documentación",
+      "Roles y permisos, auditoría de cambios y archivos en S3",
+      "Interfaz React + TypeScript sobre API Laravel documentada con Swagger"
+    ],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Laravel",
+      "TanStack Query",
+      "Docker"
+    ]
+  },
+  {
+    "slug": "control-materiales",
+    "title": "Control de materiales",
+    "org": "Punto Giro · Municipalidad",
+    "access": "login",
+    "description": "Gestión de solicitudes, stock por sucursal e ingreso de materiales.",
+    "highlights": [
+      "API con Express, Sequelize y PostgreSQL",
+      "Calendario de solicitudes, dashboard de stock y búsqueda con Meilisearch"
+    ],
+    "tags": [
+      "React",
+      "Redux Toolkit",
+      "Express",
+      "PostgreSQL",
+      "Docker"
+    ]
+  },
+  {
+    "slug": "sitio-institucional",
+    "title": "Sitio institucional del Municipio",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "public",
+    "description": "Sitio web de la Municipalidad, orientado a visibilidad institucional y acceso del ciudadano.",
+    "highlights": [
+      "Astro con componentes interactivos en React",
+      "Contenido editable en Directus CMS",
+      "Estilos Poncho del Gobierno Argentino, para accesibilidad y coherencia visual"
+    ],
+    "tags": [
+      "Astro",
+      "React",
+      "Directus",
+      "Leaflet"
+    ]
+  },
+  {
+    "slug": "apis-dashboards",
+    "title": "APIs de datos para dashboards",
+    "org": "Municipalidad de Catamarca Capital",
+    "access": "login",
+    "description": "Servicios que alimentan tableros de gestión de varias áreas: subsidios, contratos, becados y habilitaciones.",
+    "highlights": [
+      "Procesamiento y agregación de datos con pandas",
+      "Servicios con Flask y FastAPI, desplegados con Docker y GitHub Actions"
+    ],
+    "tags": [
+      "Python",
+      "Flask",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker"
+    ]
+  },
+  {
     "slug": "votacion-tiempo-real",
     "title": "Sistema de Votación en Tiempo Real",
     "org": "SUTEPA · Freelance",
@@ -128,7 +221,7 @@
       "Chart.js",
       "SheetJS",
       "Tailwind CSS"
-    ]
+    ],
+    "github": "https://github.com/Nahuewe/finanzas"
   }
 ]
-

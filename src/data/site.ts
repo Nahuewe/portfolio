@@ -7,7 +7,7 @@ export const SITE = {
   linkedin: "https://linkedin.com/in/nahuelsoriaparodi",
   github: "https://github.com/Nahuewe",
   employer: "Municipalidad de Catamarca Capital",
-  ogImage: "/og-image.png",
+  ogImage: "/porfolio.png",
 } as const
 
 export const CV: Record<Lang, string> = {

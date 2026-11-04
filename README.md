@@ -49,7 +49,7 @@ src/
 - **Tema:** claro/oscuro con toggle; respeta `prefers-color-scheme` y guarda la elección en `localStorage`.
 - **Formulario de contacto:** usa Netlify Forms (se detecta en el deploy; activá las notificaciones en el panel de Netlify).
 - **Analítica (opcional):** definí `PUBLIC_PLAUSIBLE_DOMAIN` para cargar Plausible; las descargas de CV se registran como evento `CV Download`.
-- **Imagen social:** `npm run og` regenera `public/og-image.png`.
+- **Imagen social:** `public/porfolio.png` (1200×630).
 
 ## 🧑‍💻 Desarrollo local
 
