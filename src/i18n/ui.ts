@@ -7,6 +7,25 @@ export const defaultLang = "es"
 
 export const ui = {
   es: {
+    "theme.toggle": "Cambiar tema claro/oscuro",
+    "a11y.skip": "Saltar al contenido",
+    "nav.back": "Volver a proyectos",
+
+    "projects.viewCase": "Ver caso de estudio",
+    "projects.problem": "Problema",
+    "projects.decision": "Decisión técnica",
+    "projects.result": "Resultado",
+    "projects.highlights": "Aspectos destacados",
+
+    "form.name": "Nombre",
+    "form.email": "Email",
+    "form.message": "Mensaje",
+    "form.send": "Enviar mensaje",
+    "form.sending": "Enviando...",
+    "form.success": "¡Gracias! Recibí tu mensaje y te respondo pronto.",
+    "form.error": "No se pudo enviar el mensaje. Probá de nuevo o escribime por email.",
+    "form.or": "o escribime directamente:",
+
     "meta.title": "Nahuel Soria Parodi - Desarrollador FullStack",
     "meta.description":
       "Desarrollador FullStack con más de 4 años de experiencia en React, TypeScript, Next.js y Laravel. Especializado en plataformas administrativas, dashboards y sistemas en tiempo real.",
@@ -19,6 +38,7 @@ export const ui = {
     "nav.about": "Sobre mí",
     "nav.contact": "Contactar",
     "nav.menu": "Menú",
+    "nav.main": "Navegación principal",
     "nav.aria": "Redes sociales y contacto",
     "nav.cv": "Descargar CV",
 
@@ -107,6 +127,25 @@ export const ui = {
     "contact.linkedin": "LinkedIn",
   },
   en: {
+    "theme.toggle": "Toggle light/dark theme",
+    "a11y.skip": "Skip to content",
+    "nav.back": "Back to projects",
+
+    "projects.viewCase": "View case study",
+    "projects.problem": "Problem",
+    "projects.decision": "Technical decision",
+    "projects.result": "Result",
+    "projects.highlights": "Highlights",
+
+    "form.name": "Name",
+    "form.email": "Email",
+    "form.message": "Message",
+    "form.send": "Send message",
+    "form.sending": "Sending...",
+    "form.success": "Thanks! I got your message and will reply soon.",
+    "form.error": "The message could not be sent. Please try again or email me directly.",
+    "form.or": "or write to me directly:",
+
     "meta.title": "Nahuel Soria Parodi - FullStack Developer",
     "meta.description":
       "FullStack Developer with over 4 years of experience in React, TypeScript, Next.js and Laravel. Specialized in administrative platforms, dashboards and real-time systems.",
@@ -119,6 +158,7 @@ export const ui = {
     "nav.about": "About me",
     "nav.contact": "Contact",
     "nav.menu": "Menu",
+    "nav.main": "Main navigation",
     "nav.aria": "Social links and contact",
     "nav.cv": "Download Resume",
 

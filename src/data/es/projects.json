@@ -1,5 +1,6 @@
 [
   {
+    "slug": "dashboard-municipal",
     "title": "Dashboard Municipal",
     "org": "Municipalidad de Catamarca Capital",
     "access": "login",
@@ -9,9 +10,18 @@
       "Estado de servidor con TanStack Query y despliegue con Docker",
       "Modo oscuro con tokens semánticos y gráficos Recharts adaptados al tema"
     ],
-    "tags": ["Next.js 15", "TypeScript", "Keycloak", "TanStack Query", "shadcn/ui", "Recharts", "Docker"]
+    "tags": [
+      "Next.js 15",
+      "TypeScript",
+      "Keycloak",
+      "TanStack Query",
+      "shadcn/ui",
+      "Recharts",
+      "Docker"
+    ]
   },
   {
+    "slug": "pagos-multas",
     "title": "Pagos de multas municipales",
     "org": "Juzgado de Faltas",
     "access": "public",
@@ -21,10 +31,17 @@
       "Comprobante con estética de documento fiscal argentino y PDF generado con Gotenberg",
       "Comprobante persistido en backend para recuperarlo tras la redirección del procesador de pagos"
     ],
-    "tags": ["React", "JavaScript", "MercadoPago", "Banco Galicia NAVE", "Gotenberg"],
+    "tags": [
+      "React",
+      "JavaScript",
+      "MercadoPago",
+      "Banco Galicia NAVE",
+      "Gotenberg"
+    ],
     "link": "https://pagos-juzgado.apps.cc.gob.ar/"
   },
   {
+    "slug": "portal-juzgado",
     "title": "Portal del Juzgado de Multas",
     "org": "Municipalidad de Catamarca Capital",
     "access": "public",
@@ -34,10 +51,15 @@
       "Presentación y consulta de descargos con adjuntos de imagen y video",
       "Diseño propio con tokens de Tailwind, pensado como un libro de actas municipal"
     ],
-    "tags": ["React", "TypeScript", "Tailwind CSS"],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
     "link": "https://info-juzgado.apps.cc.gob.ar/"
   },
   {
+    "slug": "hemeroteca-digital",
     "title": "Hemeroteca Digital",
     "org": "Secretarías de Modernización y Cultura",
     "access": "public",
@@ -47,10 +69,17 @@
       "Contenido en Directus CMS y catálogo integrado con la API de Koha",
       "Catálogo con paginación y detalle en modal"
     ],
-    "tags": ["React", "TypeScript", "Vite", "Directus", "Koha"],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Directus",
+      "Koha"
+    ],
     "link": "https://hemerotecamunicipal.apps.cc.gob.ar/"
   },
   {
+    "slug": "votacion-tiempo-real",
     "title": "Sistema de Votación en Tiempo Real",
     "org": "SUTEPA · Freelance",
     "access": "login",
@@ -60,9 +89,14 @@
       "Dashboards de participación por zona",
       "Mejora del 60% en eficiencia operativa tras optimizar arquitectura y flujos de datos"
     ],
-    "tags": ["React", "Laravel", "WebSockets"]
+    "tags": [
+      "React",
+      "Laravel",
+      "WebSockets"
+    ]
   },
   {
+    "slug": "sistema-recaudacion",
     "title": "Sistema de Recaudación",
     "org": "Municipalidad de Catamarca Capital",
     "access": "login",
@@ -71,9 +105,15 @@
       "Filtros avanzados y reportes por rango de fechas",
       "Indicadores de recaudación y gráficos de análisis"
     ],
-    "tags": ["React", "TypeScript", "Laravel", "Charts"]
+    "tags": [
+      "React",
+      "TypeScript",
+      "Laravel",
+      "Charts"
+    ]
   },
   {
+    "slug": "finanzas-personales",
     "title": "Panel de finanzas personales",
     "org": "Proyecto propio",
     "access": "personal",
@@ -83,6 +123,12 @@
       "Detector automático de gastos recurrentes",
       "Importación desde Excel"
     ],
-    "tags": ["Astro", "Chart.js", "SheetJS", "Tailwind CSS"]
+    "tags": [
+      "Astro",
+      "Chart.js",
+      "SheetJS",
+      "Tailwind CSS"
+    ]
   }
 ]
+

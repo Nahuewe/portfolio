@@ -1,46 +1,54 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
-import { useTranslations, type Lang } from "@/i18n/utils";
+import { ClientRouter } from "astro:transitions";
+import { useTranslations, getLocalizedPath, langs, type Lang } from "@/i18n/utils";
+import { SITE } from "@/data/site";
+import "@/styles/global.css";
 
 interface Props {
   title: string;
   description: string;
   lang: Lang;
+  /** Path without locale prefix ("/" or "/projects/foo"); used for canonical and hreflang. */
+  path?: string;
+  /** Languages in which this page exists. */
+  availableLangs?: Lang[];
   image?: string;
-  canonical?: string;
+  noindex?: boolean;
 }
 
 const {
   description,
   title,
   lang,
-  image = "/porfolio.webp",
-  canonical = Astro.url.href,
+  path = "/",
+  availableLangs = langs,
+  image = SITE.ogImage,
+  noindex = false,
 } = Astro.props;
 
 const t = useTranslations(lang);
 
-const siteUrl = "https://portfolionahuelsoriaparodi.netlify.app/";
-const ogImage = new URL(image, siteUrl).toString();
-const ogLocale = lang === "en" ? "en_US" : "es_ES";
+const abs = (p: string) => new URL(p, SITE.url).toString();
+const canonical = abs(getLocalizedPath(lang, path));
+const ogImage = abs(image);
+const ogLocale = lang === "en" ? "en_US" : "es_AR";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Nahuel Soria Parodi",
-  url: siteUrl,
-  sameAs: [
-    "https://linkedin.com/in/nahuelsoriaparodi",
-    "https://github.com/Nahuewe",
-  ],
+  name: SITE.name,
+  url: SITE.url,
+  sameAs: [SITE.linkedin, SITE.github],
   jobTitle: t("person.jobTitle"),
   worksFor: {
     "@type": "Organization",
-    name: "Municipalidad de Catamarca Capital",
+    name: SITE.employer,
   },
 };
+
+const analyticsDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
 ---
 
 <!doctype html>
@@ -49,13 +57,25 @@ const jsonLd = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="author" content="Nahuel Soria Parodi" />
+    <meta name="author" content={SITE.name} />
     <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex" />}
 
-    <!-- Canonical -->
+    <!-- Canonical + language alternates -->
     <link rel="canonical" href={canonical} />
+    {
+      availableLangs.length > 1 &&
+        availableLangs.map((l) => (
+          <link rel="alternate" hreflang={l} href={abs(getLocalizedPath(l, path))} />
+        ))
+    }
+    {
+      availableLangs.length > 1 && (
+        <link rel="alternate" hreflang="x-default" href={abs(getLocalizedPath("es", path))} />
+      )
+    }
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
@@ -64,7 +84,11 @@ const jsonLd = {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content={ogLocale} />
-    <meta property="og:site_name" content="Nahuel Soria Parodi · Portfolio" />
+    <meta property="og:site_name" content={`${SITE.name} · Portfolio`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- JSON-LD structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -72,141 +96,51 @@ const jsonLd = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="darkreader-lock" />
-    <ViewTransitions />
+
+    <!-- Apply the saved (or system) theme before first paint and after every view transition -->
+    <script is:inline>
+      (function () {
+        function preferred() {
+          try {
+            var saved = localStorage.getItem("theme");
+            if (saved === "light" || saved === "dark") return saved;
+          } catch (e) {}
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        function apply(root) {
+          root.classList.toggle("dark", preferred() === "dark");
+        }
+        apply(document.documentElement);
+        document.addEventListener("astro:before-swap", function (e) {
+          apply(e.newDocument.documentElement);
+        });
+      })();
+    </script>
+
+    <ClientRouter />
+
+    {
+      analyticsDomain && (
+        <script is:inline defer data-domain={analyticsDomain} src="https://plausible.io/js/script.tagged-events.js" />
+      )
+    }
   </head>
 
-  <body class="relative text-black dark:text-white">
-    
+  <body class="relative bg-white text-black dark:bg-gray-950 dark:text-white">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-sello-600 focus:px-4 focus:py-2 focus:font-semibold focus:text-white"
+    >
+      {t("a11y.skip")}
+    </a>
     <div
       class="pointer-events-none fixed inset-0 z-[-1] opacity-[0.035] dark:opacity-[0.05]"
       style="background-image: url('/noise.svg'); background-size: 200px 200px;"
       aria-hidden="true"
     >
     </div>
-    <Header lang={lang} />
+    <Header lang={lang} path={path} />
     <slot />
     <Footer lang={lang} />
-    <style is:global>
-      :root {
-        color-scheme: light dark;
-      }
-
-      html {
-        font-family: "Onest Variable", system-ui, sans-serif;
-        scroll-behavior: smooth;
-      }
-
-      body {
-        color: rgba(17, 17, 17, 0.9);
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        overscroll-behavior: none;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: rgba(255, 255, 255, 0.9);
-        }
-      }
-
-      @keyframes blur {
-        to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        @keyframes blur {
-          from {
-            border: 0px;
-          }
-          to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            border-width: 1px;
-            border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 9999px;
-          }
-        }
-      }
-
-      @keyframes fade-in-up {
-        from {
-          opacity: 0;
-          translate: 0 20px;
-        }
-        to {
-          opacity: 1;
-          translate: 0 0;
-        }
-      }
-
-      .anim-fade-in {
-        animation: fade-in-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
-      }
-      .anim-delay-1 {
-        animation-delay: 120ms;
-      }
-      .anim-delay-2 {
-        animation-delay: 260ms;
-      }
-      .anim-delay-3 {
-        animation-delay: 400ms;
-      }
-      .anim-delay-4 {
-        animation-delay: 540ms;
-      }
-
-      .gradient-name {
-        background: linear-gradient(135deg, #f59e0b 10%, #f97316 90%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
-      }
-
-      @supports (animation-timeline: view()) {
-        [data-section] {
-          animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-          animation-timeline: view();
-          animation-range: entry 0% entry 18%;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .anim-fade-in,
-        [data-section] {
-          animation: none !important;
-          opacity: 1 !important;
-          translate: none !important;
-        }
-      }
-    </style>
   </body>
 </html>

@@ -1,112 +1,62 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguageToggle from "./LanguageToggle.astro";
-import { useTranslations, type Lang } from "@/i18n/utils";
+import { useTranslations, getLocalizedPath, type Lang } from "@/i18n/utils";
+import { CV } from "@/data/site";
 
 interface Props {
   lang: Lang;
+  /** Path without locale prefix, used by the language switcher. */
+  path?: string;
 }
 
-const { lang } = Astro.props;
+const { lang, path = "/" } = Astro.props;
 const t = useTranslations(lang);
-const base = lang === "es" ? "" : "/en";
-const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-soria-parodi-en.pdf";
+const home = getLocalizedPath(lang, "/");
+const cvHref = CV[lang];
 
 const navItems = [
-  {
-    title: t("nav.projects"),
-    label: "proyectos",
-    url: `${base}/#proyectos`,
-  },
-  {
-    title: t("nav.experience"),
-    label: "experiencia",
-    url: `${base}/#experiencia`,
-  },
-  {
-    title: t("nav.services"),
-    label: "servicios",
-    url: `${base}/#servicios`,
-  },
-  {
-    title: t("nav.about"),
-    label: "sobre-mi",
-    url: `${base}/#sobre-mi`,
-  },
-];
+  { title: t("nav.projects"), id: "projects" },
+  { title: t("nav.experience"), id: "experience" },
+  { title: t("nav.services"), id: "services" },
+  { title: t("nav.about"), id: "about" },
+].map((item) => ({ ...item, url: `${home}#${item.id}` }));
+
+const contactUrl = `${home}#contact`;
+
+const panel =
+  "rounded-2xl border border-gray-200/20 bg-white/80 shadow-lg backdrop-blur-xl dark:bg-gray-900/80";
+const iconButtonLink =
+  "rounded-xl px-4 py-3 transition-colors hover:bg-sello-500/10 hover:text-sello-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sello-500";
 ---
 
 <header class="fixed top-4 z-50 w-full px-4">
   <div class="mx-auto max-w-6xl">
 
     <!-- MOBILE -->
-    <div
-      class="
-        md:hidden
-        flex
-        items-center
-        justify-between
-        rounded-2xl
-        border
-        border-gray-200/20
-        bg-white/80
-        dark:bg-gray-900/80
-        backdrop-blur-xl
-        shadow-lg
-        px-4
-        py-3
-      "
-    >
+    <div class={`flex items-center justify-between px-4 py-3 md:hidden ${panel}`}>
       <button
         id="menu-toggle"
-        class="
-          text-sm
-          font-medium
-          text-gray-700
-          dark:text-gray-200
-          cursor-pointer
-        "
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="cursor-pointer text-sm font-medium text-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sello-500 dark:text-gray-200"
       >
-        ☰ {t("nav.menu")}
+        <span aria-hidden="true">☰</span> {t("nav.menu")}
       </button>
 
       <div class="flex items-center gap-2">
-        <LanguageToggle lang={lang} />
-        <ThemeToggle />
+        <LanguageToggle lang={lang} path={path} />
+        <ThemeToggle lang={lang} />
       </div>
     </div>
 
     <!-- MOBILE MENU -->
-    <div
-      id="mobile-menu"
-      class="
-        hidden
-        md:hidden
-        mt-2
-        rounded-2xl
-        border
-        border-gray-200/20
-        bg-white/95
-        dark:bg-gray-900/95
-        backdrop-blur-xl
-        shadow-xl
-        p-4
-      "
-    >
+    <div id="mobile-menu" class={`mt-2 hidden p-4 md:hidden ${panel}`}>
       <div class="flex flex-col gap-2">
         {
           navItems.map((link) => (
-            <a
-              href={link.url}
-              class="
-                rounded-xl
-                px-4
-                py-3
-                transition-colors
-                hover:bg-sello-500/10
-                hover:text-sello-500
-              "
-            >
+            <a href={link.url} class={iconButtonLink}>
               {link.title}
             </a>
           ))
@@ -115,38 +65,14 @@ const navItems = [
         <a
           href={cvHref}
           download
-          class="
-            rounded-xl
-            border
-            border-sello-500/30
-            px-4
-            py-3
-            text-center
-            font-semibold
-            text-sello-500
-            transition-colors
-            hover:bg-sello-500/10
-            cursor-pointer
-          "
+          class="plausible-event-name=CV+Download cursor-pointer rounded-xl border border-sello-500/30 px-4 py-3 text-center font-semibold text-sello-500 transition-colors hover:bg-sello-500/10"
         >
           {t("nav.cv")}
         </a>
 
         <a
-          href={`${base}/#contacto`}
-          class="
-            mt-2
-            rounded-xl
-            bg-sello-600
-            px-4
-            py-3
-            text-center
-            font-semibold
-            text-white
-            transition-all
-            hover:bg-sello-500
-            cursor-pointer
-          "
+          href={contactUrl}
+          class="mt-2 cursor-pointer rounded-xl bg-sello-600 px-4 py-3 text-center font-semibold text-white transition-all hover:bg-sello-500"
         >
           {t("nav.contact")}
         </a>
@@ -155,36 +81,14 @@ const navItems = [
 
     <!-- DESKTOP -->
     <nav
-      class="
-        hidden
-        md:flex
-        header-nav
-        items-center
-        justify-center
-        gap-1
-        mx-auto
-        w-fit
-        rounded-full
-        px-3
-        py-2
-      "
+      aria-label={t("nav.main")}
+      class="header-nav mx-auto hidden w-fit items-center justify-center gap-1 rounded-full px-3 py-2 md:flex"
     >
       {
         navItems.map((link) => (
           <a
-            class="
-              nav-link
-              relative
-              px-3
-              py-2
-              rounded-full
-              text-sm
-              transition-colors
-              duration-200
-              hover:text-sello-500
-              dark:hover:text-sello-400
-            "
-            aria-label={link.label}
+            class="nav-link relative rounded-full px-3 py-2 text-sm transition-colors duration-200 hover:text-sello-500 dark:hover:text-sello-400"
+            data-nav={link.id}
             href={link.url}
           >
             {link.title}
@@ -195,47 +99,21 @@ const navItems = [
       <a
         href={cvHref}
         download
-        class="
-          ml-2
-          rounded-full
-          border
-          border-sello-500/30
-          px-4
-          py-2
-          text-sm
-          font-semibold
-          text-sello-500
-          transition-colors
-          hover:bg-sello-500/10
-          cursor-pointer
-        "
+        class="plausible-event-name=CV+Download ml-2 cursor-pointer rounded-full border border-sello-500/30 px-4 py-2 text-sm font-semibold text-sello-500 transition-colors hover:bg-sello-500/10"
       >
         {t("nav.cv")}
       </a>
 
       <a
-        href={`${base}/#contacto`}
-        class="
-          ml-2
-          rounded-full
-          bg-sello-600
-          px-4
-          py-2
-          text-sm
-          font-semibold
-          text-white
-          transition-all
-          hover:bg-sello-500
-          hover:scale-105
-          cursor-pointer
-        "
+        href={contactUrl}
+        class="ml-2 cursor-pointer rounded-full bg-sello-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:scale-105 hover:bg-sello-500"
       >
         {t("nav.contact")}
       </a>
 
-      <div class="ml-2 pl-2 flex items-center gap-2 border-l border-gray-300/30 dark:border-white/10">
-        <LanguageToggle lang={lang} />
-        <ThemeToggle />
+      <div class="ml-2 flex items-center gap-2 border-l border-gray-300/30 pl-2 dark:border-white/10">
+        <LanguageToggle lang={lang} path={path} />
+        <ThemeToggle lang={lang} />
       </div>
     </nav>
 
@@ -243,86 +121,47 @@ const navItems = [
 </header>
 
 <script>
+  document.addEventListener("keydown", (e) => {
+    const menuButton = document.getElementById("menu-toggle");
+    if (e.key === "Escape" && menuButton?.getAttribute("aria-expanded") === "true") {
+      menuButton.click();
+      menuButton.focus();
+    }
+  });
+
   document.addEventListener("astro:page-load", () => {
     const menuButton = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
 
-    menuButton?.addEventListener("click", () => {
-      mobileMenu?.classList.toggle("hidden");
-    });
-
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll(".nav-link");
-
-    const callback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-
-        navItems.forEach((item) => {
-          const active =
-            item.getAttribute("aria-label") === entry.target.id;
-
-          item.classList.toggle(
-            "text-sello-500",
-            active,
-          );
-
-          item.classList.toggle(
-            "dark:text-sello-400",
-            active,
-          );
-
-          item.classList.toggle(
-            "bg-sello-500/10",
-            active,
-          );
-
-          item.classList.toggle(
-            "font-semibold",
-            active,
-          );
-        });
-      });
+    const setOpen = (open: boolean) => {
+      mobileMenu?.classList.toggle("hidden", !open);
+      menuButton?.setAttribute("aria-expanded", String(open));
     };
 
-    const observer = new IntersectionObserver(callback, {
-      threshold: 0.35,
+    menuButton?.addEventListener("click", () => {
+      setOpen(menuButton.getAttribute("aria-expanded") !== "true");
     });
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    mobileMenu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+
+    const navLinks = document.querySelectorAll<HTMLElement>(".nav-link");
+    const activeClasses = ["text-sello-500", "dark:text-sello-400", "bg-sello-500/10", "font-semibold"];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((link) => {
+            const active = link.dataset.nav === entry.target.id;
+            activeClasses.forEach((c) => link.classList.toggle(c, active));
+            if (active) link.setAttribute("aria-current", "true");
+            else link.removeAttribute("aria-current");
+          });
+        });
+      },
+      { threshold: 0.35 },
+    );
+
+    document.querySelectorAll("section[id]").forEach((section) => observer.observe(section));
   });
 </script>
-
-<style>
-  .header-nav {
-    animation: nav-appear 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-
-    @apply
-      bg-white/70
-      dark:bg-gray-900/70
-      backdrop-blur-xl
-      border
-      border-gray-200/20
-      dark:border-white/10
-      shadow-xl;
-  }
-
-  @keyframes nav-appear {
-    0% {
-      @apply
-        bg-transparent
-        border-transparent
-        shadow-none;
-    }
-
-    100% {
-      @apply
-        backdrop-blur-xl
-        shadow-xl;
-    }
-  }
-</style>

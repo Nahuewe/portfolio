@@ -1,0 +1,85 @@
+---
+import { useTranslations, type Lang } from "@/i18n/utils"
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = useTranslations(lang)
+
+const field =
+  "mt-1 block w-full border border-black/30 bg-transparent px-3 py-2 dark:border-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-sello-500"
+---
+
+<form
+  name="contact"
+  method="POST"
+  action="/"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  data-contact-form
+  data-sending={t("form.sending")}
+  data-success={t("form.success")}
+  data-error={t("form.error")}
+  class="mt-8 grid max-w-xl gap-4"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <input type="hidden" name="lang" value={lang} />
+  <p class="hidden" aria-hidden="true">
+    <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+  </p>
+
+  <label class="block text-sm font-medium">
+    {t("form.name")}
+    <input type="text" name="name" required autocomplete="name" class={field} />
+  </label>
+  <label class="block text-sm font-medium">
+    {t("form.email")}
+    <input type="email" name="email" required autocomplete="email" class={field} />
+  </label>
+  <label class="block text-sm font-medium">
+    {t("form.message")}
+    <textarea name="message" required rows="5" class={field}></textarea>
+  </label>
+
+  <div class="flex flex-wrap items-center gap-4">
+    <button
+      type="submit"
+      class="cursor-pointer bg-sello-600 px-6 py-3 font-semibold text-white transition hover:bg-sello-500 disabled:cursor-wait disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sello-500"
+    >
+      {t("form.send")}
+    </button>
+    <p data-form-status role="status" class="text-sm text-neutral-600 dark:text-neutral-400"></p>
+  </div>
+</form>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll<HTMLFormElement>("[data-contact-form]").forEach((form) => {
+      const status = form.querySelector<HTMLElement>("[data-form-status]")!
+      const button = form.querySelector<HTMLButtonElement>("button[type=submit]")!
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault()
+        button.disabled = true
+        status.textContent = form.dataset.sending ?? ""
+        try {
+          const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>)
+          const res = await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body,
+          })
+          if (!res.ok) throw new Error(String(res.status))
+          form.reset()
+          status.textContent = form.dataset.success ?? ""
+        } catch {
+          status.textContent = form.dataset.error ?? ""
+        } finally {
+          button.disabled = false
+        }
+      })
+    })
+  })
+</script>

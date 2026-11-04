@@ -1,7 +1,6 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
-import experienceEs from "@/data/es/experience.json"
-import experienceEn from "@/data/en/experience.json"
+import { getExperience } from "@/data"
 import { useTranslations, type Lang } from "@/i18n/utils"
 
 interface Props {
@@ -10,18 +9,18 @@ interface Props {
 
 const { lang } = Astro.props
 const t = useTranslations(lang)
-const experience = lang === "en" ? experienceEn : experienceEs
+const experience = getExperience(lang)
 ---
 
 <div class="space-y-20">
 
   <div>
     <div class="mb-8">
-      <h3 class="text-2xl font-bold text-white">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
         {t("experience.professional.title")}
       </h3>
 
-      <p class="mt-2 text-neutral-400">
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
         {t("experience.professional.subtitle")}
       </p>
     </div>
@@ -39,11 +38,11 @@ const experience = lang === "en" ? experienceEn : experienceEs
 
   <div>
     <div class="mb-8">
-      <h3 class="text-2xl font-bold text-sello-400">
+      <h3 class="text-2xl font-bold text-sello-500 dark:text-sello-400">
         {t("experience.freelance.title")}
       </h3>
 
-      <p class="mt-2 text-neutral-400">
+      <p class="mt-2 text-neutral-600 dark:text-neutral-400">
         {t("experience.freelance.subtitle")}
       </p>
     </div>

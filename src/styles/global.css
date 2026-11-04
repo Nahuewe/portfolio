@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@import "@fontsource-variable/onest";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-sello-50: #fdf3ee;
+  --color-sello-100: #fbe3d6;
+  --color-sello-200: #f6c5ab;
+  --color-sello-300: #f0a37c;
+  --color-sello-400: #ea7f4d;
+  --color-sello-500: #c2410c;
+  --color-sello-600: #a8380a;
+  --color-sello-700: #872d08;
+  --color-sello-800: #6b2508;
+  --color-sello-900: #4f1c06;
+}
+
+/* Tailwind 4 defaults borders to currentColor; keep the v3 look for bare `border`. */
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  font-family: "Onest Variable", system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgba(17, 17, 17, 0.9);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overscroll-behavior: none;
+}
+
+html.dark body {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    translate: 0 20px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.anim-fade-in {
+  animation: fade-in-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.anim-delay-1 {
+  animation-delay: 120ms;
+}
+.anim-delay-2 {
+  animation-delay: 260ms;
+}
+.anim-delay-3 {
+  animation-delay: 400ms;
+}
+
+@supports (animation-timeline: view()) {
+  [data-section] {
+    animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 18%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .anim-fade-in,
+  [data-section] {
+    animation: none !important;
+    opacity: 1 !important;
+    translate: none !important;
+  }
+}
+
+.header-nav {
+  background-color: rgb(255 255 255 / 0.7);
+  border: 1px solid rgb(229 231 235 / 0.2);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  backdrop-filter: blur(24px);
+}
+
+html.dark .header-nav {
+  background-color: rgb(17 24 39 / 0.7);
+  border-color: rgb(255 255 255 / 0.1);
+}
+
+@supports (animation-timeline: scroll()) {
+  .header-nav {
+    animation: nav-appear 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+}
+
+@keyframes nav-appear {
+  0% {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}

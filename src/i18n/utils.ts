@@ -2,6 +2,8 @@ import { ui, defaultLang } from "./ui"
 
 export type Lang = keyof typeof ui
 
+export const langs = Object.keys(ui) as Lang[]
+
 export function getLangFromUrl(url: URL): Lang {
   const [, lang] = url.pathname.split("/")
   if (lang in ui) return lang as Lang

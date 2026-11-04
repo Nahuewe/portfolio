@@ -2,21 +2,9 @@
 import ExternalLink from "./icons/ExternalLink.astro"
 import GitHub from "./icons/GitHub.astro"
 import LinkButton from "./LinkButton.astro"
-import projectsEs from "@/data/es/projects.json"
-import projectsEn from "@/data/en/projects.json"
-import { useTranslations, type Lang } from "@/i18n/utils"
-
-interface Project {
-  title: string
-  org: string
-  access: "public" | "login" | "personal"
-  description: string
-  highlights: string[]
-  tags: string[]
-  link?: string
-  github?: string
-  media?: { src: string; alt: string }[]
-}
+import ArrowRight from "./icons/ArrowRight.astro"
+import { getProjects, hasCaseStudy } from "@/data"
+import { useTranslations, getLocalizedPath, type Lang } from "@/i18n/utils"
 
 interface Props {
   lang: Lang
@@ -24,7 +12,7 @@ interface Props {
 
 const { lang } = Astro.props
 const t = useTranslations(lang)
-const PROJECTS = (lang === "en" ? projectsEn : projectsEs) as Project[]
+const PROJECTS = getProjects(lang)
 const accessLabel = {
   public: t("projects.access.public"),
   login: t("projects.access.login"),
@@ -75,8 +63,14 @@ const tagClass = "font-mono text-xs uppercase tracking-wider text-sello-500 dark
 
             <p class="mt-5 font-mono text-xs text-neutral-500">{p.tags.join("  ·  ")}</p>
 
-            {(p.github || p.link) && (
+            {(p.github || p.link || hasCaseStudy(p)) && (
               <div class="mt-5 flex flex-wrap items-center gap-3">
+                {hasCaseStudy(p) && (
+                  <a href={getLocalizedPath(lang, `/projects/${p.slug}`)} class="inline-flex items-center gap-1 font-semibold text-sello-500 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-sello-500 dark:text-sello-400">
+                    {t("projects.viewCase")}
+                    <ArrowRight class="size-5" aria-hidden="true" />
+                  </a>
+                )}
                 {p.link && (
                   <LinkButton href={p.link}>
                     <ExternalLink class="size-4" />
@@ -92,7 +86,7 @@ const tagClass = "font-mono text-xs uppercase tracking-wider text-sello-500 dark
               </div>
             )}
 
-            {p.access === "login" && !p.link && (
+            {p.access === "login" && !p.link && !hasCaseStudy(p) && (
               <p class="mt-5 max-w-2xl border-l-2 border-sello-500 pl-3 text-sm text-neutral-600 dark:text-neutral-400">
                 {t("projects.restricted")}
               </p>

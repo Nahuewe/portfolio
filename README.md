@@ -32,23 +32,30 @@ Portfolio personal de **Nahuel Soria Parodi**, Desarrollador FullStack con más 
 
 ## 📁 Estructura del proyecto
 
+```
 src/
+├── components/   # Componentes Astro (Hero, Projects, ContactForm, toggles, etc.)
+├── data/         # Contenido por idioma (es/, en/), site.ts (datos personales) e index.ts (acceso tipado)
+├── i18n/         # Textos de la interfaz y helpers de idioma
+├── layouts/      # Layout base: SEO, hreflang, Open Graph, tema claro/oscuro
+├── pages/        # [...lang].astro (home es/en) y [...lang]/projects/[slug].astro
+└── styles/       # global.css (Tailwind 4 + animaciones)
+```
 
-├── components/    # Componentes Astro (Hero, Experience, Projects, AboutMe, etc.)
-
-├── data/          # Datos en JSON (experience.json, projects.json, skills.json)
-
-├── layouts/        # Layout base con metadata y SEO
-
-└── pages/          # Páginas del sitio
-
-Los contenidos de experiencia, proyectos y skills se editan directamente en los archivos `.json` dentro de `src/data/`, sin tocar los componentes.
+- Los textos de experiencia, proyectos y skills se editan en `src/data/{es,en}/*.json`.
+- Datos personales (email, redes, URL del sitio) en `src/data/site.ts`.
+- **Casos de estudio:** agregá `problem`, `decision` y/o `result` a un proyecto en ambos idiomas y se genera automáticamente `/projects/<slug>` (y `/en/projects/<slug>`). Sin esos campos no se crea la página.
+- **Capturas:** completá `media` (`{ src, alt }`) de cada proyecto.
+- **Tema:** claro/oscuro con toggle; respeta `prefers-color-scheme` y guarda la elección en `localStorage`.
+- **Formulario de contacto:** usa Netlify Forms (se detecta en el deploy; activá las notificaciones en el panel de Netlify).
+- **Analítica (opcional):** definí `PUBLIC_PLAUSIBLE_DOMAIN` para cargar Plausible; las descargas de CV se registran como evento `CV Download`.
+- **Imagen social:** `npm run og` regenera `public/og-image.png`.
 
 ## 🧑‍💻 Desarrollo local
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 El sitio quedará disponible en `http://localhost:4321`.
@@ -56,8 +63,8 @@ El sitio quedará disponible en `http://localhost:4321`.
 ## 📦 Build
 
 ```bash
-pnpm build
-pnpm preview
+npm run build
+npm run preview
 ```
 
 ## 📬 Contacto

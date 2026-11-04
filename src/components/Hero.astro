@@ -5,6 +5,7 @@ import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
 import SocialPill from "@/components/SocialPill.astro";
 import { useTranslations, type Lang } from "@/i18n/utils";
+import { SITE, CV } from "@/data/site";
 
 interface Props {
   lang: Lang;
@@ -12,13 +13,13 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-soria-parodi-en.pdf";
+const cvHref = CV[lang];
 ---
 
 <div class="max-w-4xl">
   <div class="anim-fade-in flex gap-4 mb-6 items-center">
     <a
-      href="https://linkedin.com/in/nahuelsoriaparodi"
+      href={SITE.linkedin}
       target="_blank"
       rel="noopener noreferrer"
       class="flex items-center transition md:hover:scale-105 mt-4"
@@ -33,7 +34,8 @@ const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-so
       text-sm
       uppercase
       tracking-[0.25em]
-      text-sello-400
+      text-sello-500
+      dark:text-sello-400
       font-medium"
   >
     {t("hero.role")}
@@ -88,23 +90,23 @@ const cvHref = lang === "es" ? "/cv-nahuel-soria-parodi-es.pdf" : "/cv-nahuel-so
     <a
       href={cvHref}
       download
-      class="inline-flex items-center justify-center gap-2 px-4 py-1 text-white transition bg-sello-600 border border-sello-600 rounded-full text-md hover:bg-sello-500 hover:border-sello-500 max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-sello-700"
+      class="plausible-event-name=CV+Download inline-flex items-center justify-center gap-2 px-4 py-1 text-white transition bg-sello-600 border border-sello-600 rounded-full text-md hover:bg-sello-500 hover:border-sello-500 max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-sello-700"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M12 15V3" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></svg>
       {t("hero.cv")}
     </a>
 
-    <SocialPill href="mailto:nahuelsoriap@gmail.com">
+    <SocialPill href={`mailto:${SITE.email}`}>
       <MailIcon class="size-4" />
       {t("hero.contact")}
     </SocialPill>
 
-    <SocialPill href="https://linkedin.com/in/nahuelsoriaparodi">
+    <SocialPill href={SITE.linkedin}>
       <LinkedInIcon class="size-4" />
       LinkedIn
     </SocialPill>
 
-    <SocialPill href="https://github.com/Nahuewe">
+    <SocialPill href={SITE.github}>
       <GitHubIcon class="size-4" />
       GitHub
     </SocialPill>

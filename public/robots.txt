@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolionahuelsoriaparodi.netlify.app/sitemap-index.xml

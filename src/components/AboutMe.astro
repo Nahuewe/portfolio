@@ -1,8 +1,5 @@
 ---
-import skillsEs from "@/data/es/skills.json"
-import skillsEn from "@/data/en/skills.json"
-import educationEs from "@/data/es/education.json"
-import educationEn from "@/data/en/education.json"
+import { getSkills, getEducation } from "@/data"
 import { useTranslations, type Lang } from "@/i18n/utils"
 
 interface Props {
@@ -20,8 +17,8 @@ const stats = [
   { value: "C1", label: t("about.stat.english") },
 ]
 
-const SKILLS = (lang === "en" ? skillsEn : skillsEs) as Array<{ category: string; items: string[] }>
-const EDUCATION = (lang === "en" ? educationEn : educationEs) as Array<{ title: string; institution: string; date: string; description: string }>
+const SKILLS = getSkills(lang)
+const EDUCATION = getEducation(lang)
 ---
 
 <article class="flex flex-col gap-12">
